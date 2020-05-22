@@ -11,19 +11,27 @@ class Image:
                     self.image[j][i] = temp
 
     def flip(self):
-        for j in range(int(len(self.image)/2)):
+        for j in range(int(len(self.image) / 2)):
             for i in range(len(self.image)):
                 temp = self.image[i][j]
-                self.image[i][j] = self.image[i][len(self.image)-1-j]
-                self.image[i][len(self.image)-1-j] = temp
-        
+                self.image[i][j] = self.image[i][len(self.image) - 1 - j]
+                self.image[i][len(self.image) - 1 - j] = temp
+
+    def rotate(self):
+        image_size = len(self.image) - 1
+        for i in range(len(self.image) // 2):
+            for j in range(i, image_size - i):
+                self.image[i][j], self.image[~j][i], self.image[~i][~j], self.image[j][~i] = self.image[~j][i], self.image[~i][~j], self.image[j][~i], self.image[i][j]
 
     def printMatrix(self):
         print(self.image)
 
-image = Image([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]])
+
+image = Image([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]])
 image.printMatrix()
 image.transpose()
 image.printMatrix()
 image.flip()
+image.printMatrix()
+image.rotate()
 image.printMatrix()

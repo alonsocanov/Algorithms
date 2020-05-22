@@ -1,7 +1,6 @@
 def swap(array, left, right):
-    temp = array[left]
-    array[left] = array[right]
-    array[right] = temp
+    array[left], array[right] = array[right], array[left]
+
 
 def partition(array, left, right, pivot):
     while left <= right:
@@ -15,14 +14,16 @@ def partition(array, left, right, pivot):
             right -= 1
     return left
 
+
 # quicksort
 def quicksort(array, left, right):
     if left >= right:
         return
     pivot = array[int((left + right) / 2)]
     index = partition(array, left, right, pivot)
-    quicksort(array, left, index-1)
+    quicksort(array, left, index - 1)
     quicksort(array, index, right)
+
 
 # merging two lists
 def merge(array_1, array_2):
@@ -44,7 +45,8 @@ def merge(array_1, array_2):
         j += 1
     return res
 
-# binary search 
+
+# binary search
 def binarySearch(array, x):
     left = 0
     right = len(array) - 1
@@ -61,9 +63,11 @@ def binarySearch(array, x):
 
 def main():
     my_array_1 = [2, 4, 1, 5, 9, 45, 7]
+    print(my_array_1)
     my_array_2 = [3, 8, 10, 20, 15]
-    quicksort(my_array_1, 0, len(my_array_1)-1)
-    quicksort(my_array_2, 0, len(my_array_2)-1)
+    print(my_array_2)
+    quicksort(my_array_1, 0, len(my_array_1) - 1)
+    quicksort(my_array_2, 0, len(my_array_2) - 1)
     print(my_array_1)
     print(my_array_2)
     print(merge(my_array_1, my_array_2))

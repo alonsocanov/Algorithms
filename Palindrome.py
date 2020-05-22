@@ -1,7 +1,7 @@
 def isPalindrome(array):
     head = 0
     tail = len(array) - 1
-    while head <= int((len(array) - 1)/2):
+    while head <= int((len(array) - 1) / 2):
         if array[head] == " ":
             head += 1
         if array[tail] == " ":
