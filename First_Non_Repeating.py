@@ -1,3 +1,4 @@
+
 string = 'aabaacfgfh'
 dic = {}
 unique = []

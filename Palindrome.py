@@ -1,3 +1,4 @@
+
 def isPalindrome(array):
     head = 0
     tail = len(array) - 1

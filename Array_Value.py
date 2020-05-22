@@ -1,3 +1,4 @@
+
 def isValue(array):
     if array == "":
         return False
