@@ -65,12 +65,24 @@ class TestAlgorithms(unittest.TestCase):
     #     nb_bits = countBits(val)
     #     print(nb_bits)
 
-    def test_missing_val(self):
-        print('Find missing value')
-        array = [2, 3, 1, 6, 5, 4, 8]
-        print(array)
-        x = findMissingValue(array)
-        print('Missing Value:', x)
+    # def test_missing_val(self):
+    #     print('\nFind missing value')
+    #     array = [2, 3, 1, 6, 5, 4, 8]
+    #     print(array)
+    #     x = findMissingValue(array)
+    #     print('Missing Value:', x)
+
+    def test_sum_exist(self):
+        print(
+            '\nDetermine if the sum of two values in an array is equal to the given value')
+        value = 15
+        array = [1, 4, 6, 8, 2, 5]
+        print('Array:', array)
+        print('Value:', value)
+        print('The sum exists:', sumExists(array, value))
+        value = 11
+        print('Value:', value)
+        print('The sum exists:', sumExists(array, value))
 
 
 if __name__ == '__main__':

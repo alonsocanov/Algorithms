@@ -110,10 +110,34 @@ def findMissingValue(array):
     '''
     Given an array of positive numbers from 1 to n, such that all numbers
     from one to n are present except one number x, find x
+    time complexity: O(n)
     '''
     sum_of_elements = sum(array)
 
-    # There is exactly 1 number missing
     n = len(array) + 1
     actual_sum = (n * (n + 1)) / 2
     return int(actual_sum - sum_of_elements)
+
+
+def sumExists(array, value):
+    '''
+    given an array of integers and a value, determine if there are any two
+    integers in an array whose sum is equal to the given value.
+    Return true if the sum exists else return false
+    time complexity: O(n)
+    memory complexity: O(n)
+    '''
+    array.sort()
+    lower = 0
+    upper = len(array) - 1
+
+    while lower < upper:
+        if array[lower] + array[upper] == value:
+            return True, [array[lower], array[upper]]
+        elif array[lower] + array[upper] < value:
+            lower += 1
+        elif array[lower] + array[upper] > value:
+            upper -= 1
+        else:
+            break
+    return False
