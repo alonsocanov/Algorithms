@@ -141,3 +141,27 @@ def sumExists(array, value):
         else:
             break
     return False
+
+
+def reverseWordOrder(string):
+    '''
+    Reverse the order of words in a given sentence
+    time complexity: O(n)
+    memory complexity: O(1)
+    '''
+    idx_end = 0
+    counter = 0
+    lenght = len(string)
+    while counter < lenght:
+        if string[idx_end] == ' ' or idx_end == lenght - 1:
+            word = string[:idx_end]
+            middle_sentence = string[idx_end + 1: lenght - counter + idx_end]
+            end_sentence = string[lenght - counter + idx_end:]
+            string = middle_sentence + ' ' + word + ' ' + end_sentence
+            idx_end = 0
+            counter += 1
+
+        idx_end += 1
+        counter += 1
+
+    return string.strip()

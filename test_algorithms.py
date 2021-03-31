@@ -72,17 +72,25 @@ class TestAlgorithms(unittest.TestCase):
     #     x = findMissingValue(array)
     #     print('Missing Value:', x)
 
-    def test_sum_exist(self):
+    # def test_sum_exist(self):
+    #     print(
+    #         '\nDetermine if the sum of two values in an array is equal to the given value')
+    #     value = 15
+    #     array = [1, 4, 6, 8, 2, 5]
+    #     print('Array:', array)
+    #     print('Value:', value)
+    #     print('The sum exists:', sumExists(array, value))
+    #     value = 11
+    #     print('Value:', value)
+    #     print('The sum exists:', sumExists(array, value))
+
+    def test_reverse_order(self):
         print(
-            '\nDetermine if the sum of two values in an array is equal to the given value')
-        value = 15
-        array = [1, 4, 6, 8, 2, 5]
-        print('Array:', array)
-        print('Value:', value)
-        print('The sum exists:', sumExists(array, value))
-        value = 11
-        print('Value:', value)
-        print('The sum exists:', sumExists(array, value))
+            '\nReverse the order of words in a given sentence')
+        string = 'The big brown fox'
+        print('Sentence:', string)
+        rev_string = reverseWordOrder(string)
+        print('Reversed string:', rev_string)
 
 
 if __name__ == '__main__':
