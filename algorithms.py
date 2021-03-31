@@ -164,4 +164,4 @@ def reverseWordOrder(string):
         idx_end += 1
         counter += 1
 
-    return string.strip()
+    return string
