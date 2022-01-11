@@ -93,7 +93,7 @@ class TestAlgorithms(unittest.TestCase):
         print('Reversed string:', rev_string)
 
     def test_mayority_element(self):
-        print('The mayority element that appears more than floor(n/2) times')
+        print('\nThe mayority element that appears more than floor(n/2) times')
 
         array = [1, 3, 3, 1, 2, 3, 3]
         print('Array:', array)
@@ -101,7 +101,7 @@ class TestAlgorithms(unittest.TestCase):
         print('Mayority Element:', cand)
 
     def test_max_product(self):
-        print('Maximum subarray product')
+        print('\nMaximum subarray product')
         array = [2, 3, -2, 4]
         print('Array:', array)
         subarray, product = subarrayMaxProduct(array)
