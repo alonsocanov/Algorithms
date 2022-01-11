@@ -165,3 +165,64 @@ def reverseWordOrder(string):
         counter += 1
 
     return string
+
+
+def mayorityElement(array):
+    '''
+    Given an array or size n, find the mayority element. The mayority element
+    that appears more than floor(n/2) times. (The mayority always exists)
+    time space: O(n)
+    memory complexity: O(1)
+    Moore’s Voting Algorithm
+    '''
+    def findCandidate(array):
+        maj_index = 0
+        count = 1
+        for i in range(len(array)):
+            if array[maj_index] == array[i]:
+                count += 1
+            else:
+                count -= 1
+            if count == 0:
+                maj_index = i
+                count = 1
+        return array[maj_index]
+
+    def isMajority(array, cand):
+        count = 0
+        for i in range(len(array)):
+            if array[i] == cand:
+                count += 1
+        if count > len(array)/2:
+            return True
+        else:
+            return False
+
+    # Find the candidate for Majority
+    cand = findCandidate(array)
+
+    # Print the candidate if it is Majority
+    if isMajority(array, cand) == True:
+        return cand
+    else:
+        return "No Majority Element"
+
+
+def subarrayMaxProduct(array):
+    '''
+    Find the continious subarray within an array which has the largest product.
+    Return an integer corresponding to the maximum product possible
+    '''
+    subarray = list()
+    product = array[0]
+    subarray.append(array[0])
+    for idx in range(1, len(array)):
+        if product * array[idx] > product:
+            product *= array[idx]
+            subarray.append(array[idx])
+        elif product < array[idx]:
+            product = array[idx]
+            subarray = list()
+            subarray.append(array[idx])
+
+    return subarray, product
