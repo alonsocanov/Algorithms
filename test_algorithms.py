@@ -8,28 +8,28 @@ class TestAlgorithms(unittest.TestCase):
     def test_array_value(self):
         print('\nIf str is value')
         my_array = "I am 5 years old"
-        print(my_array, ":", isValue(my_array))
+        print(my_array, ":", is_value(my_array))
         my_array = "5124"
-        print(my_array, ":", isValue(my_array))
+        print(my_array, ":", is_value(my_array))
         my_array = ""
-        print(my_array, ":", isValue(my_array))
+        print(my_array, ":", is_value(my_array))
         my_array = "12.5"
-        print(my_array, ":", isValue(my_array))
+        print(my_array, ":", is_value(my_array))
         my_array = "12..5"
-        print(my_array, ":", isValue(my_array))
+        print(my_array, ":", is_value(my_array))
 
     def test_snake_sring(self):
         print('\nCreate a snake string')
         phrase = "Hello World!"
         print(phrase)
-        snake = snakeSring(phrase)
+        snake = snake_sring(phrase)
         print(snake)
         phrase = [1, 2, 3, 4, 5]
 
     def test_roman(self):
         print('\nConvert from roman to integer')
         roman_val = "XCVII"
-        decimal_val = romanToInteger(roman_val)
+        decimal_val = roman_to_integer(roman_val)
         print("Roman Number: ", roman_val)
         print("Decimal Number: ", decimal_val)
 
@@ -37,39 +37,32 @@ class TestAlgorithms(unittest.TestCase):
         print('\nReverse an integer')
         val = 1019
         print(val)
-        rev = reverseInt(val)
+        rev = reverse_int(val)
         print(rev)
 
     def test_pascal(self):
         print('\nPascal triangle')
         n = 5
-        print(pascalTriangle(n))
+        print(pascal_triangle(n))
 
     def test_palindrome(self):
         print('\nCheck if string is palindrome')
         my_array = "anita lava la tina"
         print(my_array)
-        print(isPalindrome(my_array))
+        print(is_palindrome(my_array))
 
     def test_bit_swap(self):
         print('\nCheck bit parity')
         val = 11
         print(val)
-        value_swap = swapBits(val, 1, 2)
+        value_swap = swap_bits(val, 1, 2)
         print(value_swap)
-
-    def test_counting_bits(self):
-        print('\nBit counting')
-        val = 100
-        print(val)
-        nb_bits = countBits(val)
-        print(nb_bits)
 
     def test_missing_val(self):
         print('\nFind missing value')
         array = [2, 3, 1, 6, 5, 4, 8]
         print(array)
-        x = findMissingValue(array)
+        x = find_missing_value(array)
         print('Missing Value:', x)
 
     def test_sum_exist(self):
@@ -79,17 +72,17 @@ class TestAlgorithms(unittest.TestCase):
         array = [1, 4, 6, 8, 2, 5]
         print('Array:', array)
         print('Value:', value)
-        print('The sum exists:', sumExists(array, value))
+        print('The sum exists:', sum_exists(array, value))
         value = 11
         print('Value:', value)
-        print('The sum exists:', sumExists(array, value))
+        print('The sum exists:', sum_exists(array, value))
 
     def test_reverse_order(self):
         print(
             '\nReverse the order of words in a given sentence')
         string = 'The big brown fox'
         print('Sentence:', string)
-        rev_string = reverseWordOrder(string)
+        rev_string = reverse_word_order(string)
         print('Reversed string:', rev_string)
 
     def test_mayority_element(self):
@@ -97,20 +90,20 @@ class TestAlgorithms(unittest.TestCase):
 
         array = [1, 3, 3, 1, 2, 3, 3]
         print('Array:', array)
-        cand = mayorityElement(array)
+        cand = mayority_element(array)
         print('Mayority Element:', cand)
 
     def test_max_product(self):
         print('\nMaximum subarray product')
         array = [2, 3, -2, 4]
         print('Array:', array)
-        subarray, product = subarrayMaxProduct(array)
+        subarray, product = subarray_max_product(array)
         print('Product:', product)
         print('Subarray:', subarray)
 
     def test_num_bits_1(self):
         print("\nNumber of bits equal to 1 in integer")
-        value = 3
+        value = 12
         print("Value:", value)
         count = count_num_bits_to_1(value)
         print("The number of bits equal to 1 is:", count)
@@ -125,7 +118,6 @@ if __name__ == '__main__':
     algorithms.test_pascal()
     algorithms.test_palindrome()
     algorithms.test_bit_swap()
-    algorithms.test_counting_bits()
     algorithms.test_missing_val()
     algorithms.test_sum_exist()
     algorithms.test_reverse_order()

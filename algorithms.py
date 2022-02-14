@@ -1,4 +1,4 @@
-def isValue(array):
+def is_value(array):
     '''
     find if a str in numeric or a decimal
     '''
@@ -13,7 +13,7 @@ def isValue(array):
     return True
 
 
-def snakeSring(string):
+def snake_sring(string):
     result = []
     # height of the snake 3
     for i in range(1, len(string), 4):
@@ -25,7 +25,7 @@ def snakeSring(string):
     return ''.join(result)
 
 
-def romanToInteger(s):
+def roman_to_integer(s):
     '''
     convert from roman to integers
     '''
@@ -43,7 +43,7 @@ def romanToInteger(s):
     return val
 
 
-def reverseInt(x):
+def reverse_int(x):
     '''
     reverse an integer
     '''
@@ -55,7 +55,7 @@ def reverseInt(x):
     return res if x > 0 else -res
 
 
-def pascalTriangle(n):
+def pascal_triangle(n):
     '''
     create pascal triangle with n rows
     '''
@@ -66,7 +66,7 @@ def pascalTriangle(n):
     return result
 
 
-def isPalindrome(array):
+def is_palindrome(array):
     '''
     check if string is palindrome
     '''
@@ -84,7 +84,7 @@ def isPalindrome(array):
     return True
 
 
-def swapBits(x, i, j):
+def swap_bits(x, i, j):
     '''
     check bit parity
     '''
@@ -95,18 +95,7 @@ def swapBits(x, i, j):
     return res
 
 
-def countBits(x):
-    '''
-    counting bits
-    '''
-    num_bits = 0
-    while x:
-        num_bits += x & 1
-        x >>= 1
-    return num_bits
-
-
-def findMissingValue(array):
+def find_missing_value(array):
     '''
     Given an array of positive numbers from 1 to n, such that all numbers
     from one to n are present except one number x, find x
@@ -119,7 +108,7 @@ def findMissingValue(array):
     return int(actual_sum - sum_of_elements)
 
 
-def sumExists(array, value):
+def sum_exists(array, value):
     '''
     given an array of integers and a value, determine if there are any two
     integers in an array whose sum is equal to the given value.
@@ -143,7 +132,7 @@ def sumExists(array, value):
     return False
 
 
-def reverseWordOrder(string):
+def reverse_word_order(string):
     '''
     Reverse the order of words in a given sentence
     time complexity: O(n)
@@ -167,7 +156,7 @@ def reverseWordOrder(string):
     return string
 
 
-def mayorityElement(array):
+def mayority_element(array):
     '''
     Given an array or size n, find the mayority element. The mayority element
     that appears more than floor(n/2) times. (The mayority always exists)
@@ -175,7 +164,7 @@ def mayorityElement(array):
     memory complexity: O(1)
     Moore’s Voting Algorithm
     '''
-    def findCandidate(array):
+    def find_candidate(array):
         maj_index = 0
         count = 1
         for i in range(len(array)):
@@ -188,7 +177,7 @@ def mayorityElement(array):
                 count = 1
         return array[maj_index]
 
-    def isMajority(array, cand):
+    def is_majority(array, cand):
         count = 0
         for i in range(len(array)):
             if array[i] == cand:
@@ -199,16 +188,16 @@ def mayorityElement(array):
             return False
 
     # Find the candidate for Majority
-    cand = findCandidate(array)
+    cand = find_candidate(array)
 
     # Print the candidate if it is Majority
-    if isMajority(array, cand) == True:
+    if is_majority(array, cand) == True:
         return cand
     else:
         return "No Majority Element"
 
 
-def subarrayMaxProduct(array):
+def subarray_max_product(array):
     '''
     Find the continious subarray within an array which has the largest product.
     Return an integer corresponding to the maximum product possible
@@ -237,3 +226,7 @@ def count_num_bits_to_1(value: int):
         count += value & 1
         value >>= 1
     return count
+
+
+def parity_bit(bit: str):
+    pass
