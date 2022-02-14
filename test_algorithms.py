@@ -96,17 +96,24 @@ class TestAlgorithms(unittest.TestCase):
     def test_max_product(self):
         print('\nMaximum subarray product')
         array = [2, 3, -2, 4]
-        print('Array:', array)
         subarray, product = subarray_max_product(array)
+        print('Array:', array)
         print('Product:', product)
         print('Subarray:', subarray)
 
     def test_num_bits_1(self):
         print("\nNumber of bits equal to 1 in integer")
         value = 12
-        print("Value:", value)
         count = count_num_bits_to_1(value)
+        print("Value:", format(value, 'b'))
         print("The number of bits equal to 1 is:", count)
+
+    def test_parity_bit(self):
+        print("\nParity bits")
+        value = 500
+        result = parity_bit(value)
+        print("Bit value:", format(value, 'b'))
+        print("Parity bit:", result)
 
 
 if __name__ == '__main__':
@@ -124,3 +131,4 @@ if __name__ == '__main__':
     algorithms.test_mayority_element()
     algorithms.test_max_product()
     algorithms.test_num_bits_1()
+    algorithms.test_parity_bit()

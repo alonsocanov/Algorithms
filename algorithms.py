@@ -132,7 +132,7 @@ def sum_exists(array, value):
     return False
 
 
-def reverse_word_order(string):
+def reverse_word_order(string: str):
     '''
     Reverse the order of words in a given sentence
     time complexity: O(n)
@@ -164,7 +164,7 @@ def mayority_element(array):
     memory complexity: O(1)
     Moore’s Voting Algorithm
     '''
-    def find_candidate(array):
+    def find_candidate(array: list):
         maj_index = 0
         count = 1
         for i in range(len(array)):
@@ -177,7 +177,7 @@ def mayority_element(array):
                 count = 1
         return array[maj_index]
 
-    def is_majority(array, cand):
+    def is_majority(array: list, cand: int):
         count = 0
         for i in range(len(array)):
             if array[i] == cand:
@@ -197,7 +197,7 @@ def mayority_element(array):
         return "No Majority Element"
 
 
-def subarray_max_product(array):
+def subarray_max_product(array: list):
     '''
     Find the continious subarray within an array which has the largest product.
     Return an integer corresponding to the maximum product possible
@@ -228,5 +228,12 @@ def count_num_bits_to_1(value: int):
     return count
 
 
-def parity_bit(bit: str):
-    pass
+def parity_bit(value: int):
+    '''
+    The parity of a word bit is 1 if the number of 1s in a word is odd, o is the number of 1s in a word is even
+    '''
+    result = 0
+    while value:
+        result ^= value & 1
+        value >>= 1
+    return result
