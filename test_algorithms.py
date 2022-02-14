@@ -108,6 +108,13 @@ class TestAlgorithms(unittest.TestCase):
         print('Product:', product)
         print('Subarray:', subarray)
 
+    def test_num_bits_1(self):
+        print("\nNumber of bits equal to 1 in integer")
+        value = 3
+        print("Value:", value)
+        count = count_num_bits_to_1(value)
+        print("The number of bits equal to 1 is:", count)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -124,3 +131,4 @@ if __name__ == '__main__':
     algorithms.test_reverse_order()
     algorithms.test_mayority_element()
     algorithms.test_max_product()
+    algorithms.test_num_bits_1()

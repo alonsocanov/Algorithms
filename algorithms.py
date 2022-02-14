@@ -226,3 +226,14 @@ def subarrayMaxProduct(array):
             subarray.append(array[idx])
 
     return subarray, product
+
+
+def count_num_bits_to_1(value: int):
+    '''
+     Counting number of bits equal to 1 aims to learn bit shifting algorithms
+    '''
+    count = 0
+    while value:
+        count += value & 1
+        value >>= 1
+    return count
