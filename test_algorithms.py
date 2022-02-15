@@ -1,6 +1,7 @@
 import unittest
 import numpy as np
 from algorithms import *
+import time
 
 
 class TestAlgorithms(unittest.TestCase):
@@ -110,10 +111,17 @@ class TestAlgorithms(unittest.TestCase):
 
     def test_parity_bit(self):
         print("\nParity bits")
-        value = 500
-        result = parity_bit(value)
+        value = 55500
+        t = time.time()
+        result = parity_bit_v1(value)
         print("Bit value:", format(value, 'b'))
         print("Parity bit:", result)
+        print("Time for parity bit v1:", time.time() - t)
+        t = time.time()
+        result = parity_bit_v2(value)
+        print("Bit value:", format(value, 'b'))
+        print("Parity bit:", result)
+        print("Time for parity bit v1:", time.time() - t)
 
 
 if __name__ == '__main__':

@@ -1,3 +1,6 @@
+from unittest import result
+
+
 def is_value(array):
     '''
     find if a str in numeric or a decimal
@@ -228,7 +231,7 @@ def count_num_bits_to_1(value: int):
     return count
 
 
-def parity_bit(value: int):
+def parity_bit_v1(value: int):
     '''
     The parity of a word bit is 1 if the number of 1s in a word is odd, o is the number of 1s in a word is even
     '''
@@ -237,3 +240,13 @@ def parity_bit(value: int):
         result ^= value & 1
         value >>= 1
     return result
+
+
+def parity_bit_v2(value: int):
+    '''
+    The parity of a word bit is 1 if the number of 1s in a word is odd, o is the number of 1s in a word is even
+    '''
+    pow_2 = [32, 16, 8, 4, 2, 1]
+    for i in pow_2:
+        value ^= value >> i
+    return value & 0x1
