@@ -1,6 +1,7 @@
 import unittest
 import numpy as np
 from algorithms import *
+from arrays import *
 import time
 
 
@@ -123,6 +124,22 @@ class TestAlgorithms(unittest.TestCase):
         print("Parity bit:", result)
         print("Time for parity bit v1:", time.time() - t)
 
+    def test_array_swap(self):
+        print("\nSwap array")
+        array = [1, 2, 3, 5, 6]
+        print("Array:", array)
+        array_value_swap(array, 2, 3)
+        print("Array value swap:", array)
+
+    def test_array_merging(self):
+        print("\nMerge two sorted arrays")
+        array_1 = [1, 2, 3, 5, 26]
+        array_2 = [5, 10, 11, 20]
+        print("Array 1:", array_1)
+        print("Array 2:", array_2)
+        array = merge_arrays(array_1, array_2)
+        print("Merged array:", array)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -140,3 +157,5 @@ if __name__ == '__main__':
     algorithms.test_max_product()
     algorithms.test_num_bits_1()
     algorithms.test_parity_bit()
+    algorithms.test_array_swap()
+    algorithms.test_array_merging()

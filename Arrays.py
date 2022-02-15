@@ -1,5 +1,8 @@
 
-def swap(array, left, right):
+def array_value_swap(array: list, left: int, right: int):
+    '''
+    Arrat value swap
+    '''
     array[left], array[right] = array[right], array[left]
 
 
@@ -10,7 +13,7 @@ def partition(array, left, right, pivot):
         while array[right] > pivot:
             right -= 1
         if left <= right:
-            swap(array, left, right)
+            array_value_swap(array, left, right)
             left += 1
             right -= 1
     return left
@@ -27,7 +30,10 @@ def quicksort(array, left, right):
 
 
 # merging two lists
-def merge(array_1, array_2):
+def merge_arrays(array_1: list, array_2: list):
+    '''
+    Merge two number sorted arrays
+    '''
     res = []
     i = 0
     j = 0
