@@ -1,5 +1,7 @@
+from genericpath import exists
 import unittest
 import numpy as np
+from pandas import array
 from algorithms import *
 from arrays import *
 import time
@@ -140,6 +142,22 @@ class TestAlgorithms(unittest.TestCase):
         array = merge_arrays(array_1, array_2)
         print("Merged array:", array)
 
+    def test_binary_search(self):
+        print("\nBinary search in a sorted list")
+        array = [1, 3, 5, 7, 8, 10, 25]
+        value = 8
+        print("Array:", array)
+        print("Search for value:", value)
+        exists = binary_search(array, value)
+        print("Value exists:", exists)
+
+    def test_quicksort(self):
+        print("\nTesting a quicksorting in a list")
+        array = [2, 1, 6, 8, 4, 3, 6, -1]
+        print("Original array:", array)
+        quicksort(array, 0, len(array)-1)
+        print("Sorted array:", array)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -157,5 +175,8 @@ if __name__ == '__main__':
     algorithms.test_max_product()
     algorithms.test_num_bits_1()
     algorithms.test_parity_bit()
+    # list algorithms
     algorithms.test_array_swap()
     algorithms.test_array_merging()
+    algorithms.test_binary_search()
+    algorithms.test_quicksort()

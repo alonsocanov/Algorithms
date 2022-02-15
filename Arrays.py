@@ -20,7 +20,10 @@ def partition(array, left, right, pivot):
 
 
 # quicksort
-def quicksort(array, left, right):
+def quicksort(array: list, left: int, right: int):
+    '''
+    Quisort using recursive method
+    '''
     if left >= right:
         return
     pivot = array[int((left + right) / 2)]
@@ -54,7 +57,10 @@ def merge_arrays(array_1: list, array_2: list):
 
 
 # binary search
-def binarySearch(array, x):
+def binary_search(array: list, x):
+    ''''
+    Binary search in a sorted list
+    '''
     left = 0
     right = len(array) - 1
     while (left <= right):
@@ -75,10 +81,6 @@ def main():
     print(my_array_2)
     quicksort(my_array_1, 0, len(my_array_1) - 1)
     quicksort(my_array_2, 0, len(my_array_2) - 1)
-    print(my_array_1)
-    print(my_array_2)
-    print(merge(my_array_1, my_array_2))
-    print(binarySearch(my_array_1, 9))
 
 
 if __name__ == '__main__':
