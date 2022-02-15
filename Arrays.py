@@ -25,7 +25,7 @@ def quicksort(array: list, left: int, right: int):
     Quisort using recursive method
     '''
     if left >= right:
-        return
+        left, right = right, left
     pivot = array[int((left + right) / 2)]
     index = partition(array, left, right, pivot)
     quicksort(array, left, index - 1)
