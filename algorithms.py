@@ -250,3 +250,18 @@ def parity_bit_v2(value: int):
     for i in pow_2:
         value ^= value >> i
     return value & 0x1
+
+
+def first_non_repeating(string: str):
+    '''
+        get unique letters in string
+    '''
+    dic = {}
+    unique = []
+    for c in string:
+        if c not in dic:
+            dic[c] = 1
+            unique.append(c)
+        else:
+            dic[c] += 1
+    return unique

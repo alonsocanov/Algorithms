@@ -158,6 +158,12 @@ class TestAlgorithms(unittest.TestCase):
         quicksort(array, 0, len(array)-1)
         print("Sorted array:", array)
 
+    def test_first_non_repeating(self):
+        print("\nGet non repeating letters from string")
+        string = 'aabaacfgfh'
+        unique = first_non_repeating(string)
+        print("Unique letters:", unique)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -175,8 +181,9 @@ if __name__ == '__main__':
     algorithms.test_max_product()
     algorithms.test_num_bits_1()
     algorithms.test_parity_bit()
+    algorithms.test_first_non_repeating()
     # list algorithms
-    algorithms.test_array_swap()
-    algorithms.test_array_merging()
-    algorithms.test_binary_search()
-    algorithms.test_quicksort()
+    # algorithms.test_array_swap()
+    # algorithms.test_array_merging()
+    # algorithms.test_binary_search()
+    # algorithms.test_quicksort()
