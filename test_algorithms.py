@@ -171,6 +171,13 @@ class TestAlgorithms(unittest.TestCase):
         duplicates = find_duplicates(array)
         print("The duplicates in the list are:", duplicates)
 
+    def test_remove_duplicates(self):
+        print("\nREmove duplicates from list")
+        array = [2, 4, 5, 6, 2, 3, 9, 7, 6, 1]
+        print("The array is:", array)
+        duplicates = remove_duplicates(array)
+        print("The new list is:", duplicates)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -195,3 +202,4 @@ if __name__ == '__main__':
     algorithms.test_binary_search()
     # algorithms.test_quicksort()
     algorithms.test_find_duplicates()
+    algorithms.test_remove_duplicates()

@@ -83,6 +83,10 @@ def find_duplicates(array: list):
     return duplicates
 
 
+def remove_duplicates(array: list):
+    return list(set(array))
+
+
 def main():
     my_array_1 = [2, 4, 1, 5, 9, 45, 7]
     print(my_array_1)
