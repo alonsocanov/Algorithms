@@ -74,6 +74,15 @@ def binary_search(array: list, x):
     return False
 
 
+def find_duplicates(array: list):
+    duplicates, seen = set(), set()
+    for element in array:
+        if element in seen:
+            duplicates.add(element)
+        seen.add(element)
+    return duplicates
+
+
 def main():
     my_array_1 = [2, 4, 1, 5, 9, 45, 7]
     print(my_array_1)

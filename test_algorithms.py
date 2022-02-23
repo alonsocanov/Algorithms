@@ -126,6 +126,12 @@ class TestAlgorithms(unittest.TestCase):
         print("Parity bit:", result)
         print("Time for parity bit v1:", time.time() - t)
 
+    def test_first_non_repeating(self):
+        print("\nGet non repeating letters from string")
+        string = 'aabaacfgfh'
+        unique = first_non_repeating(string)
+        print("Unique letters:", unique)
+
     def test_array_swap(self):
         print("\nSwap array")
         array = [1, 2, 3, 5, 6]
@@ -158,11 +164,12 @@ class TestAlgorithms(unittest.TestCase):
         quicksort(array, 0, len(array)-1)
         print("Sorted array:", array)
 
-    def test_first_non_repeating(self):
-        print("\nGet non repeating letters from string")
-        string = 'aabaacfgfh'
-        unique = first_non_repeating(string)
-        print("Unique letters:", unique)
+    def test_find_duplicates(self):
+        print("\nFind duplicates in a list")
+        array = [2, 4, 5, 6, 2, 3, 9, 7, 6, 1]
+        print("The array is:", array)
+        duplicates = find_duplicates(array)
+        print("The duplicates in the list are:", duplicates)
 
 
 if __name__ == '__main__':
@@ -183,7 +190,8 @@ if __name__ == '__main__':
     algorithms.test_parity_bit()
     algorithms.test_first_non_repeating()
     # list algorithms
-    # algorithms.test_array_swap()
-    # algorithms.test_array_merging()
-    # algorithms.test_binary_search()
+    algorithms.test_array_swap()
+    algorithms.test_array_merging()
+    algorithms.test_binary_search()
     # algorithms.test_quicksort()
+    algorithms.test_find_duplicates()
