@@ -20,16 +20,13 @@ def partition(array, left, right, pivot):
 
 
 # quicksort
-def quicksort(array: list, left: int, right: int):
+def quicksort(array: list):
     '''
     Quisort using recursive method
     '''
-    if left >= right:
-        left, right = right, left
-    pivot = array[int((left + right) / 2)]
-    index = partition(array, left, right, pivot)
-    quicksort(array, left, index - 1)
-    quicksort(array, index, right)
+    if not array:
+        return []
+    return quicksort([x for x in array[1:] if x < array[0]]) + array[0:1] + quicksort([x for x in array[1:] if x >= array[0]])
 
 
 # merging two lists
@@ -85,6 +82,15 @@ def find_duplicates(array: list):
 
 def remove_duplicates(array: list):
     return list(set(array))
+
+
+def list_intersection(array_1: list, array_2: list):
+    res, list2_copy = [], array_2[:]
+    for element in array_1:
+        if element in list2_copy:
+            res.append(element)
+            list2_copy.remove(element)
+    return res
 
 
 def main():

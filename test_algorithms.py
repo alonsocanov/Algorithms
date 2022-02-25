@@ -159,9 +159,9 @@ class TestAlgorithms(unittest.TestCase):
 
     def test_quicksort(self):
         print("\nTesting a quicksorting in a list")
-        array = [2, 1, 6, 8, 4, 3, 6, -1]
+        array = [2, 1, 6, 8, 4, 3, 6]
         print("Original array:", array)
-        quicksort(array, 0, len(array)-1)
+        quicksort(array)
         print("Sorted array:", array)
 
     def test_find_duplicates(self):
@@ -172,11 +172,20 @@ class TestAlgorithms(unittest.TestCase):
         print("The duplicates in the list are:", duplicates)
 
     def test_remove_duplicates(self):
-        print("\nREmove duplicates from list")
+        print("\nRemove duplicates from list")
         array = [2, 4, 5, 6, 2, 3, 9, 7, 6, 1]
         print("The array is:", array)
         duplicates = remove_duplicates(array)
         print("The new list is:", duplicates)
+
+    def test_list_intersection(self):
+        print("\nCheck intersection of two lists")
+        array_1 = [2, 4, 5, 6, 2, 3, 9, 7, 6, 1]
+        array_2 = [2, 5, 6, 10, 3, 39, 6, 1]
+        print("The array_1 is:", array_1)
+        print("The array_2 is:", array_2)
+        intersections = list_intersection(array_1, array_2)
+        print("The intersection are:", intersections)
 
 
 if __name__ == '__main__':
@@ -200,6 +209,7 @@ if __name__ == '__main__':
     algorithms.test_array_swap()
     algorithms.test_array_merging()
     algorithms.test_binary_search()
-    # algorithms.test_quicksort()
+    algorithms.test_quicksort()
     algorithms.test_find_duplicates()
     algorithms.test_remove_duplicates()
+    algorithms.test_list_intersection()
