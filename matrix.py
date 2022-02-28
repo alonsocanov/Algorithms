@@ -16,6 +16,7 @@ def flip(matrix: list):
             temp = matrix[i][j]
             matrix[i][j] = matrix[i][len(matrix) - 1 - j]
             matrix[i][len(matrix) - 1 - j] = temp
+    return matrix
 
 
 def rotate(matrix: list):
@@ -24,14 +25,4 @@ def rotate(matrix: list):
         for j in range(i, matrix_size - i):
             matrix[i][j], matrix[~j][i], matrix[~i][~j], matrix[j][
                 ~i] = matrix[~j][i], matrix[~i][~j], matrix[j][~i], matrix[i][j]
-
-
-# matrix = Matrix([[1, 2, 3, 4], [5, 6, 7, 8], [
-#                 9, 10, 11, 12], [13, 14, 15, 16]])
-# matrix.printMatrix()
-# matrix.transpose()
-# matrix.printMatrix()
-# matrix.flip()
-# matrix.printMatrix()
-# matrix.rotate()
-# matrix.printMatrix()
+    return matrix

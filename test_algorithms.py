@@ -131,8 +131,7 @@ class TestAlgorithms(unittest.TestCase):
         unique = first_non_repeating(string)
         print("Unique letters:", unique)
 
-    # Array
-
+    # Arrays
     def test_array_swap(self):
         print("\nSwap array")
         array = [1, 2, 3, 5, 6]
@@ -196,6 +195,20 @@ class TestAlgorithms(unittest.TestCase):
         trans = transpose(array)
         print("Transposed matrix:", trans)
 
+    def test_matrix_flip(self):
+        print("\nTest matrix flip")
+        array = [[1, 2], [3, 4]]
+        print("Matrix:", array)
+        flipped = flip(array)
+        print("Flipped matrix:", flipped)
+
+    def test_matrix_rotate(self):
+        print("\nTest matrix rotate")
+        array = [[1, 2], [3, 4]]
+        print("Matrix:", array)
+        rot = rotate(array)
+        print("Flipped matrix:", rot)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -224,3 +237,5 @@ if __name__ == '__main__':
     algorithms.test_list_intersection()
     # Matrix
     algorithms.test_matrix_transpose()
+    algorithms.test_matrix_flip()
+    algorithms.test_matrix_rotate()
