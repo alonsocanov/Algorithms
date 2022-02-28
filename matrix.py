@@ -1,0 +1,37 @@
+
+
+def transpose(matrix: list):
+    for i in range(len(matrix)):
+        for j in range(len(matrix)):
+            if j >= i:
+                temp = matrix[i][j]
+                matrix[i][j] = matrix[j][i]
+                matrix[j][i] = temp
+    return matrix
+
+
+def flip(matrix: list):
+    for j in range(int(len(matrix) / 2)):
+        for i in range(len(matrix)):
+            temp = matrix[i][j]
+            matrix[i][j] = matrix[i][len(matrix) - 1 - j]
+            matrix[i][len(matrix) - 1 - j] = temp
+
+
+def rotate(matrix: list):
+    matrix_size = len(matrix) - 1
+    for i in range(len(matrix) // 2):
+        for j in range(i, matrix_size - i):
+            matrix[i][j], matrix[~j][i], matrix[~i][~j], matrix[j][
+                ~i] = matrix[~j][i], matrix[~i][~j], matrix[j][~i], matrix[i][j]
+
+
+# matrix = Matrix([[1, 2, 3, 4], [5, 6, 7, 8], [
+#                 9, 10, 11, 12], [13, 14, 15, 16]])
+# matrix.printMatrix()
+# matrix.transpose()
+# matrix.printMatrix()
+# matrix.flip()
+# matrix.printMatrix()
+# matrix.rotate()
+# matrix.printMatrix()

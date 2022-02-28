@@ -1,9 +1,8 @@
 from genericpath import exists
 import unittest
-import numpy as np
-from pandas import array
 from algorithms import *
 from arrays import *
+from matrix import *
 import time
 
 
@@ -132,6 +131,8 @@ class TestAlgorithms(unittest.TestCase):
         unique = first_non_repeating(string)
         print("Unique letters:", unique)
 
+    # Array
+
     def test_array_swap(self):
         print("\nSwap array")
         array = [1, 2, 3, 5, 6]
@@ -187,6 +188,14 @@ class TestAlgorithms(unittest.TestCase):
         intersections = list_intersection(array_1, array_2)
         print("The intersection are:", intersections)
 
+    # Matrix
+    def test_matrix_transpose(self):
+        print("\nTest matrix transpose")
+        array = [[1, 2], [3, 4]]
+        print("Matrix:", array)
+        trans = transpose(array)
+        print("Transposed matrix:", trans)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -213,3 +222,5 @@ if __name__ == '__main__':
     algorithms.test_find_duplicates()
     algorithms.test_remove_duplicates()
     algorithms.test_list_intersection()
+    # Matrix
+    algorithms.test_matrix_transpose()
