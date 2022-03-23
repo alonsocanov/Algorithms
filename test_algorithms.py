@@ -1,8 +1,8 @@
-from genericpath import exists
 import unittest
 from algorithms import *
 from arrays import *
 from matrix import *
+from strings import *
 import time
 
 
@@ -209,6 +209,13 @@ class TestAlgorithms(unittest.TestCase):
         rot = rotate(array)
         print("Flipped matrix:", rot)
 
+    def test_reverse_sentence(self):
+        print("\nTest Reverse a sentence")
+        string = "Ana likes Bob"
+        print("Original sentence:", string)
+        string = reverse_words_in_sentence(string)
+        print("Reversed sentence:", string)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -239,3 +246,5 @@ if __name__ == '__main__':
     algorithms.test_matrix_transpose()
     algorithms.test_matrix_flip()
     algorithms.test_matrix_rotate()
+    # strings
+    algorithms.test_reverse_sentence()
