@@ -211,7 +211,7 @@ class TestAlgorithms(unittest.TestCase):
 
     def test_reverse_sentence(self):
         print("\nTest Reverse a sentence")
-        string = "Ana likes Bob"
+        string = "Ana likes Bob and Alice"
         print("Original sentence:", string)
         string = reverse_words_in_sentence(string)
         print("Reversed sentence:", string)
