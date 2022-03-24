@@ -218,7 +218,7 @@ class TestAlgorithms(unittest.TestCase):
 
     def test_phone_mnemonics(self):
         print("\nTest phone mnemonics")
-        string = "25556666677776660222121"
+        string = "2266622026630255544422233"
         print("Phone Mnemonics:", string)
         message = phone_mnemonics(string)
         print("Message:", message)

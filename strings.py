@@ -39,6 +39,8 @@ def phone_mnemonics(string: str):
         if digit == prev_digit:
             if len(mapping[digit]) - 1 > num_reps:
                 num_reps += 1
+                if idx == len(string) - 1:
+                    message += mapping[digit][num_reps]
             else:
                 message += mapping[digit][num_reps]
                 num_reps = 0
