@@ -1,8 +1,14 @@
+from email import message
+
+
 def string_decode_col(strning: str):
     pass
 
 
 def reverse_words_in_sentence(string: str):
+    '''
+    Reverse the sentence Order
+    '''
     def reverse_range(string: str, start: int, end: int):
         string = list(string)
         while start < end:
@@ -23,5 +29,25 @@ def reverse_words_in_sentence(string: str):
 
 
 def phone_mnemonics(string: str):
-    mapping = ('0', '1', 'ABC', 'DEF', 'GHI',
-               'JKL', 'MNO', 'PQRS', 'TUV', 'XYZ')
+    mapping = {'0': ' ', '1': '', '2': 'ABC', '3': 'DEF', '4': 'GHI',
+               '5': 'JKL', '6': 'MNO', '7': 'PQRS', '8': 'TUV', '9': 'XYZ'}
+    prev_digit = string[0]
+    message = ''
+    num_reps = 0
+    for idx in range(1, len(string)):
+        digit = string[idx]
+        if digit == prev_digit:
+            if len(mapping[digit]) - 1 > num_reps:
+                num_reps += 1
+            else:
+                message += mapping[digit][num_reps]
+                num_reps = 0
+        else:
+            if len(mapping[prev_digit]) == 0:
+                message += ''
+            else:
+                message += mapping[prev_digit][num_reps]
+            prev_digit = digit
+            num_reps = 0
+
+    return message

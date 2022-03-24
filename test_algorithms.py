@@ -216,6 +216,13 @@ class TestAlgorithms(unittest.TestCase):
         string = reverse_words_in_sentence(string)
         print("Reversed sentence:", string)
 
+    def test_phone_mnemonics(self):
+        print("\nTest phone mnemonics")
+        string = "25556666677776660222121"
+        print("Phone Mnemonics:", string)
+        message = phone_mnemonics(string)
+        print("Message:", message)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -248,3 +255,4 @@ if __name__ == '__main__':
     algorithms.test_matrix_rotate()
     # strings
     algorithms.test_reverse_sentence()
+    algorithms.test_phone_mnemonics()
