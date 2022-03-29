@@ -53,3 +53,21 @@ def phone_mnemonics(string: str):
             num_reps = 0
 
     return message
+
+
+def is_palindrome(array):
+    '''
+    check if string is palindrome
+    '''
+    head = 0
+    tail = len(array) - 1
+    while head <= int((len(array) - 1) / 2):
+        if array[head] == " ":
+            head += 1
+        if array[tail] == " ":
+            tail -= 1
+        if array[head] != array[tail]:
+            return False
+        head += 1
+        tail -= 1
+    return True

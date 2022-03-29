@@ -48,12 +48,6 @@ class TestAlgorithms(unittest.TestCase):
         n = 5
         print(pascal_triangle(n))
 
-    def test_palindrome(self):
-        print('\nCheck if string is palindrome')
-        my_array = "anita lava la tina"
-        print(my_array)
-        print(is_palindrome(my_array))
-
     def test_bit_swap(self):
         print('\nCheck bit parity')
         val = 11
@@ -222,6 +216,12 @@ class TestAlgorithms(unittest.TestCase):
         print("Phone Mnemonics:", string)
         message = phone_mnemonics(string)
         print("Message:", message)
+
+    def test_palindrome(self):
+        print('\nCheck if string is palindrome')
+        my_array = "anita lava la tina"
+        print(my_array)
+        print(is_palindrome(my_array))
 
 
 if __name__ == '__main__':
