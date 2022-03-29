@@ -71,3 +71,30 @@ def is_palindrome(array):
         head += 1
         tail -= 1
     return True
+
+
+def is_value(array):
+    '''
+    find if a str in numeric or a decimal
+    '''
+    if array == "":
+        return False
+    decimal_flag = 0
+    for i in array:
+        if i == ".":
+            decimal_flag += 1
+        if ((i <= "0" or i >= "9") and i != ".") or decimal_flag == 2:
+            return False
+    return True
+
+
+def snake_sring(string):
+    result = []
+    # height of the snake 3
+    for i in range(1, len(string), 4):
+        result.append(string[i])
+    for i in range(0, len(string), 2):
+        result.append(string[i])
+    for i in range(3, len(string), 4):
+        result.append(string[i])
+    return ''.join(result)

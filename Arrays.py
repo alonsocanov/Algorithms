@@ -93,14 +93,14 @@ def list_intersection(array_1: list, array_2: list):
     return res
 
 
-def main():
-    my_array_1 = [2, 4, 1, 5, 9, 45, 7]
-    print(my_array_1)
-    my_array_2 = [3, 8, 10, 20, 15]
-    print(my_array_2)
-    quicksort(my_array_1, 0, len(my_array_1) - 1)
-    quicksort(my_array_2, 0, len(my_array_2) - 1)
+def find_missing_value(array):
+    '''
+    Given an array of positive numbers from 1 to n, such that all numbers
+    from one to n are present except one number x, find x
+    time complexity: O(n)
+    '''
+    sum_of_elements = sum(array)
 
-
-if __name__ == '__main__':
-    main()
+    n = len(array) + 1
+    actual_sum = (n * (n + 1)) / 2
+    return int(actual_sum - sum_of_elements)

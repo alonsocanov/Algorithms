@@ -230,10 +230,7 @@ if __name__ == '__main__':
     algorithms.test_snake_sring()
     algorithms.test_roman()
     algorithms.test_reverse_int()
-    algorithms.test_pascal()
-    algorithms.test_palindrome()
     algorithms.test_bit_swap()
-    algorithms.test_missing_val()
     algorithms.test_sum_exist()
     algorithms.test_reverse_order()
     algorithms.test_mayority_element()
@@ -241,7 +238,7 @@ if __name__ == '__main__':
     algorithms.test_num_bits_1()
     algorithms.test_parity_bit()
     algorithms.test_first_non_repeating()
-    # list algorithms
+    # Arrays
     algorithms.test_array_swap()
     algorithms.test_array_merging()
     algorithms.test_binary_search()
@@ -249,10 +246,13 @@ if __name__ == '__main__':
     algorithms.test_find_duplicates()
     algorithms.test_remove_duplicates()
     algorithms.test_list_intersection()
+    algorithms.test_missing_val()
     # Matrix
     algorithms.test_matrix_transpose()
     algorithms.test_matrix_flip()
     algorithms.test_matrix_rotate()
-    # strings
+    # Strings
     algorithms.test_reverse_sentence()
     algorithms.test_phone_mnemonics()
+    algorithms.test_pascal()
+    algorithms.test_palindrome()

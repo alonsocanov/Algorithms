@@ -1,33 +1,6 @@
 from unittest import result
 
 
-def is_value(array):
-    '''
-    find if a str in numeric or a decimal
-    '''
-    if array == "":
-        return False
-    decimal_flag = 0
-    for i in array:
-        if i == ".":
-            decimal_flag += 1
-        if ((i <= "0" or i >= "9") and i != ".") or decimal_flag == 2:
-            return False
-    return True
-
-
-def snake_sring(string):
-    result = []
-    # height of the snake 3
-    for i in range(1, len(string), 4):
-        result.append(string[i])
-    for i in range(0, len(string), 2):
-        result.append(string[i])
-    for i in range(3, len(string), 4):
-        result.append(string[i])
-    return ''.join(result)
-
-
 def roman_to_integer(s):
     '''
     convert from roman to integers
@@ -69,24 +42,6 @@ def pascal_triangle(n):
     return result
 
 
-def is_palindrome(array):
-    '''
-    check if string is palindrome
-    '''
-    head = 0
-    tail = len(array) - 1
-    while head <= int((len(array) - 1) / 2):
-        if array[head] == " ":
-            head += 1
-        if array[tail] == " ":
-            tail -= 1
-        if array[head] != array[tail]:
-            return False
-        head += 1
-        tail -= 1
-    return True
-
-
 def swap_bits(x, i, j):
     '''
     check bit parity
@@ -96,19 +51,6 @@ def swap_bits(x, i, j):
         mask = (1 << i) | (1 << j)
         res ^= mask
     return res
-
-
-def find_missing_value(array):
-    '''
-    Given an array of positive numbers from 1 to n, such that all numbers
-    from one to n are present except one number x, find x
-    time complexity: O(n)
-    '''
-    sum_of_elements = sum(array)
-
-    n = len(array) + 1
-    actual_sum = (n * (n + 1)) / 2
-    return int(actual_sum - sum_of_elements)
 
 
 def sum_exists(array, value):
