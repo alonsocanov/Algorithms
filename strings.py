@@ -1,4 +1,5 @@
 from email import message
+from unittest import result
 
 
 def string_decode_col(strning: str):
@@ -34,12 +35,13 @@ def phone_mnemonics(string: str):
     prev_digit = string[0]
     message = ''
     num_reps = 0
-    for idx in range(1, len(string)):
+    str_len = len(string)
+    for idx in range(1, str_len):
         digit = string[idx]
         if digit == prev_digit:
             if len(mapping[digit]) - 1 > num_reps:
                 num_reps += 1
-                if idx == len(string) - 1:
+                if idx == str_len - 1:
                     message += mapping[digit][num_reps]
             else:
                 message += mapping[digit][num_reps]
@@ -98,3 +100,44 @@ def snake_sring(string):
     for i in range(3, len(string), 4):
         result.append(string[i])
     return ''.join(result)
+
+
+def roman_to_integer(s):
+    '''
+    convert from roman to integers
+    '''
+    T = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    s_copy = s[::-1]
+    val = 0
+    i = 0
+    while i < len(s_copy):
+        if i < len(s) - 1 and T[s_copy[i]] > T[s_copy[i + 1]]:
+            val += T[s_copy[i]] - T[s_copy[i + 1]]
+            i += 1
+        else:
+            val += T[s_copy[i]]
+        i += 1
+    return val
+
+
+def valid_ip(string):
+    '''
+    A valid ip addres contains numbers bettween 0 - 255 and must have 4 integers
+    00 and 000 is not valid
+    '''
+    def is_valid(string):
+        return len(string) == 1 or (string[0] != '0' and int(string) <= 255)
+
+    result, parts = [], [None] * 4
+    for idx in range(1, min(4, len(string))):
+        parts[0] = string[:idx]
+        if is_valid(parts[0]):
+            for jdx in range(1, min(len(string) - idx, 4)):
+                parts[1] = string[idx:idx + jdx]
+                if is_valid(parts[1]):
+                    for kdx in range(1, min(len(string) - idx - jdx, 4)):
+                        parts[2], parts[3] = string[idx + jdx:idx +
+                                                    jdx + kdx], string[idx + jdx + kdx:]
+                        if is_valid(parts[2]) and is_valid(parts[3]):
+                            result.append('.'.join(parts))
+    return result

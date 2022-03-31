@@ -29,13 +29,6 @@ class TestAlgorithms(unittest.TestCase):
         print(snake)
         phrase = [1, 2, 3, 4, 5]
 
-    def test_roman(self):
-        print('\nConvert from roman to integer')
-        roman_val = "XCVII"
-        decimal_val = roman_to_integer(roman_val)
-        print("Roman Number: ", roman_val)
-        print("Decimal Number: ", decimal_val)
-
     def test_reverse_int(self):
         print('\nReverse an integer')
         val = 1019
@@ -223,12 +216,25 @@ class TestAlgorithms(unittest.TestCase):
         print(my_array)
         print(is_palindrome(my_array))
 
+    def test_roman(self):
+        print('\nConvert from roman to integer')
+        roman_val = "LIX"
+        decimal_val = roman_to_integer(roman_val)
+        print("Roman Number: ", roman_val)
+        print("Decimal Number: ", decimal_val)
+
+    def test_ip(self):
+        print('\nConvert from roman to integer')
+        num = "19216811"
+        ip = valid_ip(num)
+        print("Number: ", num)
+        print("ip address: ", ip)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
     algorithms.test_array_value()
     algorithms.test_snake_sring()
-    algorithms.test_roman()
     algorithms.test_reverse_int()
     algorithms.test_bit_swap()
     algorithms.test_sum_exist()
@@ -256,3 +262,5 @@ if __name__ == '__main__':
     algorithms.test_phone_mnemonics()
     algorithms.test_pascal()
     algorithms.test_palindrome()
+    algorithms.test_roman()
+    algorithms.test_ip()
