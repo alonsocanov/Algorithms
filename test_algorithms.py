@@ -21,14 +21,6 @@ class TestAlgorithms(unittest.TestCase):
         my_array = "12..5"
         print(my_array, ":", is_value(my_array))
 
-    def test_snake_sring(self):
-        print('\nCreate a snake string')
-        phrase = "Hello World!"
-        print(phrase)
-        snake = snake_sring(phrase)
-        print(snake)
-        phrase = [1, 2, 3, 4, 5]
-
     def test_reverse_int(self):
         print('\nReverse an integer')
         val = 1019
@@ -230,11 +222,18 @@ class TestAlgorithms(unittest.TestCase):
         print("Number: ", num)
         print("ip address: ", ip)
 
+    def test_snake_sring(self):
+        print('\nCreate a snake string')
+        phrase = "Hello World!"
+        print(phrase)
+        snake = snake_sring(phrase)
+        print(snake)
+        phrase = [1, 2, 3, 4, 5]
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
     algorithms.test_array_value()
-    algorithms.test_snake_sring()
     algorithms.test_reverse_int()
     algorithms.test_bit_swap()
     algorithms.test_sum_exist()
@@ -264,3 +263,4 @@ if __name__ == '__main__':
     algorithms.test_palindrome()
     algorithms.test_roman()
     algorithms.test_ip()
+    algorithms.test_snake_sring()

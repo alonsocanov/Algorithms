@@ -90,18 +90,6 @@ def is_value(array):
     return True
 
 
-def snake_sring(string):
-    result = []
-    # height of the snake 3
-    for i in range(1, len(string), 4):
-        result.append(string[i])
-    for i in range(0, len(string), 2):
-        result.append(string[i])
-    for i in range(3, len(string), 4):
-        result.append(string[i])
-    return ''.join(result)
-
-
 def roman_to_integer(s):
     '''
     convert from roman to integers
@@ -141,3 +129,22 @@ def valid_ip(string):
                         if is_valid(parts[2]) and is_valid(parts[3]):
                             result.append('.'.join(parts))
     return result
+
+
+def snake_sring(string):
+    result = []
+    # height of the snake 3
+    for i in range(1, len(string), 4):
+        result.append(string[i])
+    for i in range(0, len(string), 2):
+        result.append(string[i])
+    for i in range(3, len(string), 4):
+        result.append(string[i])
+    return ''.join(result)
+
+
+def run_encoding(string):
+    count, result = 1, []
+    for idx in range(1, len(string) + 1):
+        if idx == len(string) or string[idx] != string[idx - 1]:
+            result.append(str(count) + string[idx - 1])
