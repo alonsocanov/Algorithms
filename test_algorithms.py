@@ -3,6 +3,7 @@ from algorithms import *
 from arrays import *
 from matrix import *
 from strings import *
+from binary_search import *
 import time
 
 
@@ -230,6 +231,23 @@ class TestAlgorithms(unittest.TestCase):
         print(snake)
         phrase = [1, 2, 3, 4, 5]
 
+    def test_split_array_largest_sum(self):
+        print('\nSplit array into largest sum')
+        array = [7, 2, 5, 10, 8]
+        split = 3
+        result = split_array_largest_sum(array, split)
+        print('For the array:', array)
+        print('The largest sum is:', result)
+
+    def test_binary_search_v2(self):
+        print("\nBinary search in a sorted list")
+        array = [1, 3, 5, 7, 8, 10, 25]
+        value = 8
+        print("Array:", array)
+        print("Search for value:", value)
+        exists = binary_search_v2(array, value)
+        print("The index is:", exists)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -264,3 +282,6 @@ if __name__ == '__main__':
     algorithms.test_roman()
     algorithms.test_ip()
     algorithms.test_snake_sring()
+    # Binary search
+    algorithms.test_split_array_largest_sum()
+    algorithms.test_binary_search_v2()
