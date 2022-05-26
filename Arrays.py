@@ -104,3 +104,23 @@ def find_missing_value(array):
     n = len(array) + 1
     actual_sum = (n * (n + 1)) / 2
     return int(actual_sum - sum_of_elements)
+
+
+def best_time_to_buy_stock(array):
+    '''
+    Sliding window problem, two poninters to array, geta max profit
+    '''
+
+    left_buy, right_sell = 0, 1
+    max_profit = 0
+    while right_sell < len(array):
+        # profitable
+        if array[left_buy] < array[right_sell]:
+            profit = array[right_sell] - array[left_buy]
+            max_profit = max(profit, max_profit)
+        else:
+            left_buy = right_sell
+
+        right_sell += 1
+
+    return max_profit

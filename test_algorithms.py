@@ -167,7 +167,15 @@ class TestAlgorithms(unittest.TestCase):
         intersections = list_intersection(array_1, array_2)
         print("The intersection are:", intersections)
 
+    def test_best_time_to_buy_stock(self):
+        print("\nBest time to sell stock")
+        array = [2, 4, 5, 6, 2, 3, 9, 7, 6, 1]
+        print("The array is:", array)
+        max_profit = best_time_to_buy_stock(array)
+        print("The maximum profit is:", max_profit)
+
     # Matrix
+
     def test_matrix_transpose(self):
         print("\nTest matrix transpose")
         array = [[1, 2], [3, 4]]
@@ -270,6 +278,7 @@ if __name__ == '__main__':
     algorithms.test_remove_duplicates()
     algorithms.test_list_intersection()
     algorithms.test_missing_val()
+    algorithms.test_best_time_to_buy_stock()
     # Matrix
     algorithms.test_matrix_transpose()
     algorithms.test_matrix_flip()
