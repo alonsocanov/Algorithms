@@ -4,6 +4,7 @@ from arrays import *
 from matrix import *
 from strings import *
 from binary_search import *
+from linked_lists import Node, LinkedList
 import time
 
 
@@ -256,6 +257,17 @@ class TestAlgorithms(unittest.TestCase):
         exists = binary_search_v2(array, value)
         print("The index is:", exists)
 
+    def test_linked_list(self):
+        print("\nLinked list tests")
+        node_1 = Node(1)
+        node_2 = Node(2)
+        node_3 = Node(3)
+        linked_list = LinkedList()
+        linked_list.append(node_1)
+        linked_list.append(node_2)
+        linked_list.append(node_3)
+        print("Print linked List:", linked_list)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -294,3 +306,5 @@ if __name__ == '__main__':
     # Binary search
     algorithms.test_split_array_largest_sum()
     algorithms.test_binary_search_v2()
+    # Linked List
+    algorithms.test_linked_list()
