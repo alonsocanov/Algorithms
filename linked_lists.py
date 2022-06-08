@@ -1,3 +1,6 @@
+from requests import head
+
+
 class Node:
     def __init__(self, data=None) -> None:
         self.value = data
@@ -40,4 +43,24 @@ class LinkedList:
         return elements
 
     def reorder_list(self):
-        pass
+        # find middle of list
+        slow, fast = self.head, self.head.next
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+        second = slow.next
+        prev = slow.next = None
+        while second:
+            tmp = second.next
+            second.next = prev
+            prev = second
+            second = tmp
+
+        # merge two halfs
+        first, second = self.head, prev
+        while second:
+            tmp_1, tmp_2 = first.next, second.next
+            first.next = second
+            second.next = tmp_1
+            first, second = tmp_1, tmp_2

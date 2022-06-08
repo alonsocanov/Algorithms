@@ -259,14 +259,15 @@ class TestAlgorithms(unittest.TestCase):
 
     def test_linked_list(self):
         print("\nLinked list tests")
-        node_1 = Node(1)
-        node_2 = Node(2)
-        node_3 = Node(3)
+        nodes = []
+        for i in range(6):
+            nodes += [Node(i)]
         linked_list = LinkedList()
-        linked_list.append(node_1)
-        linked_list.append(node_2)
-        linked_list.append(node_3)
+        for node in nodes:
+            linked_list.append(node)
         print("Print linked List:", linked_list)
+        linked_list.reorder_list()
+        print("Print reordered linked List:", linked_list)
 
 
 if __name__ == '__main__':
