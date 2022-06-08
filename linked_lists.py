@@ -1,29 +1,38 @@
 from requests import head
 
 
-class Node:
+class Node(object):
     def __init__(self, data=None) -> None:
         self.value = data
         self.next = None
 
     def __str__(self) -> str:
+
         return str(self.value)
 
+    def __eq__(self, other) -> bool:
+        if isinstance(other, Node):
+            if other.value == self.value:
+                return True
+        return False
 
-class LinkedList:
-    def __init__(self) -> None:
-        self.head = Node()
+
+class LinkedList(object):
+    def __init__(self, data=Node()) -> None:
+        self.head = data
 
     def append(self, data):
         if not isinstance(data, Node):
             new_node = Node(data)
         else:
             new_node = data
-
-        current_node = self.head
-        while current_node.next != None:
-            current_node = current_node.next
-        current_node.next = new_node
+        if self.head == Node():
+            self.head = new_node
+        else:
+            current_node = self.head
+            while current_node.next != None:
+                current_node = current_node.next
+            current_node.next = new_node
 
     def length(self):
         current_node = self.head
@@ -37,8 +46,8 @@ class LinkedList:
         elements = ''
         current_node = self.head
         while current_node.next != None:
-            current_node = current_node.next
             elements += str(current_node) + ' -> '
+            current_node = current_node.next
         elements += 'None'
         return elements
 
@@ -64,3 +73,17 @@ class LinkedList:
             first.next = second
             second.next = tmp_1
             first, second = tmp_1, tmp_2
+
+
+def intersection(list_1, list_2):
+    l1, l2 = list_1.head, list_2.head
+    while l1 != l2:
+        if l1:
+            l1 = l1.next
+        else:
+            l1 = list_2.head
+        if l2:
+            l2 = l2.next
+        else:
+            l2 = list_1.head
+    return l1

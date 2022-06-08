@@ -4,7 +4,7 @@ from arrays import *
 from matrix import *
 from strings import *
 from binary_search import *
-from linked_lists import Node, LinkedList
+from linked_lists import Node, LinkedList, intersection
 import time
 
 
@@ -265,9 +265,29 @@ class TestAlgorithms(unittest.TestCase):
         linked_list = LinkedList()
         for node in nodes:
             linked_list.append(node)
-        print("Print linked List:", linked_list)
+        print("Linked List:", linked_list)
         linked_list.reorder_list()
-        print("Print reordered linked List:", linked_list)
+        print("Reordered linked List:", linked_list)
+
+    def test_linked_list_intersection(self):
+        print("\nLinked list Intersection")
+        nodes = []
+        for i in range(6):
+            nodes += [Node(i)]
+        linked_list_1 = LinkedList()
+        for node in nodes:
+            linked_list_1.append(node)
+        print("Linked List 1:", linked_list_1)
+        nodes = []
+        for i in range(3, 6):
+            nodes += [Node(i)]
+        linked_list_2 = LinkedList()
+        linked_list_2.append(Node(9))
+        for node in nodes:
+            linked_list_2.append(node)
+        print("Linked List 2:", linked_list_2)
+        inter = intersection(linked_list_1, linked_list_2)
+        print("Intersection Node:", inter)
 
 
 if __name__ == '__main__':
@@ -309,3 +329,4 @@ if __name__ == '__main__':
     algorithms.test_binary_search_v2()
     # Linked List
     algorithms.test_linked_list()
+    algorithms.test_linked_list_intersection()
