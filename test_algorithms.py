@@ -261,7 +261,7 @@ class TestAlgorithms(unittest.TestCase):
         print("\nLinked list tests")
         nodes = []
         for i in range(6):
-            nodes += [Node(i)]
+            nodes += [i]
         linked_list = LinkedList()
         for node in nodes:
             linked_list.append(node)
@@ -273,16 +273,16 @@ class TestAlgorithms(unittest.TestCase):
         print("\nLinked list Intersection")
         nodes = []
         for i in range(6):
-            nodes += [Node(i)]
+            nodes += [i]
         linked_list_1 = LinkedList()
         for node in nodes:
             linked_list_1.append(node)
         print("Linked List 1:", linked_list_1)
         nodes = []
         for i in range(3, 6):
-            nodes += [Node(i)]
+            nodes += [i]
         linked_list_2 = LinkedList()
-        linked_list_2.append(Node(9))
+        linked_list_2.append(9)
         for node in nodes:
             linked_list_2.append(node)
         print("Linked List 2:", linked_list_2)
