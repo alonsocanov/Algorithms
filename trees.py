@@ -22,14 +22,8 @@ class Node(object):
         return False
 
     def __str__(self):
-        string = str(self.value) + '\n' + \
-            str(self.left) + '  ' + str(self.right)
+        string = ' '.join([str(self.value), str(self.left), str(self.right)])
         return string
-
-
-class Tree(object):
-    def __init__(self, node=Node()) -> None:
-        self.head = node
 
     def insert(self, node):
         if not isinstance(node, Node):
@@ -37,27 +31,23 @@ class Tree(object):
         else:
             new_node = node
 
-        if self.head == Node():
-            self.head = node
+        if self.value is None:
+            self.value = new_node.value
         else:
-            curr = self.head
-            if new_node > curr:
+            if new_node.value < self.value:
                 if self.left is None:
                     self.left = new_node
                 else:
                     self.left.insert(new_node)
-            elif new_node < curr:
-                if self.right in None:
+            elif new_node.value > self.value:
+                if self.right is None:
                     self.right = new_node
                 else:
                     self.right.insert(new_node)
 
-    def __str__(self):
-        string = str(self.head)
-        return string
 
-
-tree = Tree()
-tree.insert(10)
-tree.insert(40)
-tree.insert(5)
+node = Node()
+node.insert(10)
+node.insert(40)
+node.insert(5)
+print(node)
