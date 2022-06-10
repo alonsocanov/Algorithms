@@ -21,6 +21,11 @@ class Node(object):
             return self.value > other.value
         return False
 
+    def __str__(self):
+        string = str(self.value) + '\n' + \
+            str(self.left) + '  ' + str(self.right)
+        return string
+
 
 class Tree(object):
     def __init__(self, node=Node()) -> None:
@@ -40,15 +45,16 @@ class Tree(object):
                 if self.left is None:
                     self.left = new_node
                 else:
-                    self.left.add(new_node)
+                    self.left.insert(new_node)
             elif new_node < curr:
                 if self.right in None:
                     self.right = new_node
                 else:
-                    self.right.add(new_node)
+                    self.right.insert(new_node)
 
     def __str__(self):
-        pass
+        string = str(self.head)
+        return string
 
 
 tree = Tree()
