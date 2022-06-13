@@ -80,7 +80,6 @@ class LinkedList(object):
             first, second = tmp_1, tmp_2
 
     def remove(self, ind):
-
         if ind < 0:
             dummy = LinkedList()
             dummy.head.next = self.head

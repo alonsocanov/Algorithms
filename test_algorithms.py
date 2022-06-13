@@ -297,6 +297,7 @@ class TestAlgorithms(unittest.TestCase):
         tree.insert(40)
         tree.insert(5)
         tree.insert(20)
+        tree.insert(4)
         print('The tree is:', tree)
 
 

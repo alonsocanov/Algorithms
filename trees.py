@@ -44,3 +44,14 @@ class Node(object):
                     self.right = new_node
                 else:
                     self.right.insert(new_node)
+
+    def remove(self, node):
+        if not isinstance(node, Node):
+            new_node = Node(node)
+        else:
+            new_node = node
+
+        if self.value == new_node.value:
+            pass
+        else:
+            pass
