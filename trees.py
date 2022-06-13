@@ -44,10 +44,3 @@ class Node(object):
                     self.right = new_node
                 else:
                     self.right.insert(new_node)
-
-
-node = Node()
-node.insert(10)
-node.insert(40)
-node.insert(5)
-print(node)

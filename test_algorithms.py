@@ -4,7 +4,7 @@ from arrays import *
 from matrix import *
 from strings import *
 from binary_search import *
-from linked_lists import Node, LinkedList, intersection
+from linked_lists import Node, LinkedList
 from trees import Node as Tree
 import time
 
@@ -287,7 +287,7 @@ class TestAlgorithms(unittest.TestCase):
         for node in nodes:
             linked_list_2.append(node)
         print("Linked List 2:", linked_list_2)
-        inter = intersection(linked_list_1, linked_list_2)
+        inter = linked_list_1.intersection(linked_list_2)
         print("Intersection Node:", inter)
 
     def test_tree(self):
@@ -296,6 +296,7 @@ class TestAlgorithms(unittest.TestCase):
         tree.insert(10)
         tree.insert(40)
         tree.insert(5)
+        tree.insert(20)
         print('The tree is:', tree)
 
 

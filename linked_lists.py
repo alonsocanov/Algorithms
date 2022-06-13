@@ -1,3 +1,4 @@
+from turtle import left
 from requests import head
 
 
@@ -19,7 +20,11 @@ class Node(object):
 
 class LinkedList(object):
     def __init__(self, data=Node()) -> None:
-        self.head = data
+        if not isinstance(data, Node):
+            node = Node(data)
+        else:
+            node = data
+        self.head = node
 
     def append(self, data):
         if not isinstance(data, Node):
@@ -74,16 +79,43 @@ class LinkedList(object):
             second.next = tmp_1
             first, second = tmp_1, tmp_2
 
+    def remove(self, ind):
 
-def intersection(list_1, list_2):
-    l1, l2 = list_1.head, list_2.head
-    while l1 != l2:
-        if l1:
-            l1 = l1.next
+        if ind < 0:
+            dummy = LinkedList()
+            dummy.head.next = self.head
+            left = dummy
+            right = self.head
+            abs_n = abs(ind)
+            while abs_n > 0 and right:
+                right = right.next
+                abs_n -= 1
+
+            while right:
+                left = left.next
+                right = right.next
+
+            # delete
+            left.next = left.next.next
+            return dummy.next
         else:
-            l1 = list_2.head
-        if l2:
-            l2 = l2.next
-        else:
-            l2 = list_1.head
-    return l1
+            dummy = LinkedList()
+            dummy.head.next = self.head
+            i = 0
+            curr = self.head
+            while i < ind:
+                cur = curr.next
+                i += 1
+
+    def intersection(self, list_2):
+        l1, l2 = self.head, list_2.head
+        while l1 != l2:
+            if l1:
+                l1 = l1.next
+            else:
+                l1 = list_2.head
+            if l2:
+                l2 = l2.next
+            else:
+                l2 = self.head
+        return l1
