@@ -1,3 +1,4 @@
+from operator import inv
 import unittest
 
 from pandas import array
@@ -7,8 +8,9 @@ from matrix import *
 from strings import *
 from binary_search import *
 from linked_lists import Node, LinkedList
-from trees import Node as Tree
+from trees import TreeNode
 from hash import *
+from stack import *
 import time
 
 
@@ -75,7 +77,6 @@ class TestAlgorithms(unittest.TestCase):
 
     def test_mayority_element(self):
         print('\nThe mayority element that appears more than floor(n/2) times')
-
         array = [1, 3, 3, 1, 2, 3, 3]
         print('Array:', array)
         cand = mayority_element(array)
@@ -295,13 +296,15 @@ class TestAlgorithms(unittest.TestCase):
 
     def test_tree(self):
         print("\nTest Tree")
-        tree = Tree()
+        tree = TreeNode()
         tree.insert(10)
         tree.insert(40)
         tree.insert(5)
         tree.insert(20)
         tree.insert(4)
         print('The tree is:', tree)
+        inv_tree = tree.invert(tree)
+        print('The tree inverted is:', inv_tree)
 
     def test_two_sum(self):
         print("\nTest Two sum of a target in a array")
@@ -310,7 +313,13 @@ class TestAlgorithms(unittest.TestCase):
         target = 11
         print('The target:', target)
         idx_1, idx_2 = two_sum(array, target)
-        print('The two indextes for the target is:', idx_1, idx_2)
+        print('The two indexes for the target is:', idx_1, ',', idx_2)
+
+    def test_valid_parenthesis(self):
+        print('\nVerify valid parenthesis')
+        string = "()((()))[][[]]"
+        print("For the string:", string)
+        print("The string is valid, ", valid_parenthesis(string))
 
 
 if __name__ == '__main__':
@@ -357,3 +366,5 @@ if __name__ == '__main__':
     algorithms.test_tree()
     # Hash
     algorithms.test_two_sum()
+    # stacks
+    algorithms.test_valid_parenthesis()
