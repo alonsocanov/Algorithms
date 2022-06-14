@@ -1,4 +1,6 @@
 import unittest
+
+from pandas import array
 from algorithms import *
 from arrays import *
 from matrix import *
@@ -6,6 +8,7 @@ from strings import *
 from binary_search import *
 from linked_lists import Node, LinkedList
 from trees import Node as Tree
+from hash import *
 import time
 
 
@@ -300,6 +303,15 @@ class TestAlgorithms(unittest.TestCase):
         tree.insert(4)
         print('The tree is:', tree)
 
+    def test_two_sum(self):
+        print("\nTest Two sum of a target in a array")
+        array = [2, 3, 4, 5, 6, 7]
+        print('The array is:', array)
+        target = 11
+        print('The target:', target)
+        idx_1, idx_2 = two_sum(array, target)
+        print('The two indextes for the target is:', idx_1, idx_2)
+
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -343,3 +355,5 @@ if __name__ == '__main__':
     algorithms.test_linked_list_intersection()
     # Trees
     algorithms.test_tree()
+    # Hash
+    algorithms.test_two_sum()
