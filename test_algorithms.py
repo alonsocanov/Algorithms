@@ -7,7 +7,7 @@ from arrays import *
 from matrix import *
 from strings import *
 from binary_search import *
-from linked_lists import Node, LinkedList
+from linked_lists import LinkedList
 from trees import TreeNode
 from hash import *
 from stack import *
@@ -118,6 +118,12 @@ class TestAlgorithms(unittest.TestCase):
         print("Unique letters:", unique)
 
     # Arrays
+    def test_can_jump(self):
+        print("\nJumping Game")
+        array = [1, 2, 0, 5, 6]
+        print("Array:", array)
+        print("Can get to the end:", jump_game(array))
+
     def test_array_swap(self):
         print("\nSwap array")
         array = [1, 2, 3, 5, 6]
@@ -335,6 +341,7 @@ if __name__ == '__main__':
     algorithms.test_parity_bit()
     algorithms.test_first_non_repeating()
     # Arrays
+    algorithms.test_can_jump()
     algorithms.test_array_swap()
     algorithms.test_array_merging()
     algorithms.test_binary_search()

@@ -124,3 +124,35 @@ def best_time_to_buy_stock(array):
         right_sell += 1
 
     return max_profit
+
+
+def jump_game(array: list[int]) -> bool:
+    '''
+    Given an array of non-negative integers nums, you are initially positioned at the
+    first index of the array.
+    Each element in the array represents your maximum jump length at that
+    position.
+    Determine if you are able to reach the last index.
+    '''
+    # geady method
+    goal = len(array) - 1
+    for i in range(goal, -1, -1):
+        if i + array[i] >= goal:
+            goal = i
+
+    if goal == 0:
+        return True
+    else:
+        return False
+
+
+def maximum_sum_of_subarray(array: list[int]):
+    # sliding window
+    max_sub = array[0]
+    curr_sum = 0
+    for n in array:
+        if curr_sum < 0:
+            curr_sum = 0
+        curr_sum += n
+        max_sub = max(max_sub, curr_sum)
+    return max_sub
