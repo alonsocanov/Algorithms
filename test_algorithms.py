@@ -321,12 +321,6 @@ class TestAlgorithms(unittest.TestCase):
         idx_1, idx_2 = two_sum(array, target)
         print('The two indexes for the target is:', idx_1, ',', idx_2)
 
-    def test_valid_parenthesis(self):
-        print('\nVerify valid parenthesis')
-        string = "()((()))[][[]]"
-        print("For the string:", string)
-        print("The string is valid, ", valid_parenthesis(string))
-
 
 if __name__ == '__main__':
     algorithms = TestAlgorithms()
@@ -373,5 +367,3 @@ if __name__ == '__main__':
     algorithms.test_tree()
     # Hash
     algorithms.test_two_sum()
-    # stacks
-    algorithms.test_valid_parenthesis()

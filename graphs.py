@@ -2,7 +2,6 @@ def can_finish_course(num_courses: int, prerequisites: list) -> bool:
     pre_map = {i: [] for i in range(num_courses + 1)}
     for crs, pre in prerequisites:
         pre_map[crs].append(pre)
-    print(pre_map)
 
     visited = set()
 
@@ -28,5 +27,8 @@ def can_finish_course(num_courses: int, prerequisites: list) -> bool:
 
 if __name__ == '__main__':
     array = [[0, 1], [0, 2], [1, 3], [0, 3], [1, 2], [2, 3]]
+    print('The nodes are:', array)
     num_courses = 3
-    print(can_finish_course(num_courses, array))
+    print('Number of courses:', num_courses)
+    can = can_finish_course(num_courses, array)
+    print('Can finish all courses:', can)
