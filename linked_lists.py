@@ -1,6 +1,3 @@
-from turtle import left
-from requests import head
-
 
 class Node(object):
     def __init__(self, data=None) -> None:

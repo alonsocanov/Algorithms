@@ -156,3 +156,35 @@ def maximum_sum_of_subarray(array: list[int]):
         curr_sum += n
         max_sub = max(max_sub, curr_sum)
     return max_sub
+
+
+def search_sugestion(array: list[str], word: str):
+    array.sort()
+    left, right = 0, len(array) - 1
+    res = []
+
+    for i in range(len(word)):
+        char = word[i]
+
+        while left <= right and (len(array[left]) < i or array[left][i] != char):
+            left += 1
+
+        while left <= right and (len(array[right]) < i or array[right][i] != char):
+            rught += 1
+
+        res.append([])
+        remander = right - left + 1
+        for j in range(min(3, remander)):
+            res[-1].append(array[left + j])
+
+    return res
+
+
+if __name__ == '__main__':
+    print("\nSearch sugestions")
+    words = ["mobile", "mouse", "moneypot", "monitor", "mousepad"]
+    word = "mouse"
+    print("List of words:", words)
+    print("search word:", word)
+    sugestions = search_sugestion(words, word)
+    print("Sugestions:\n", sugestions)
