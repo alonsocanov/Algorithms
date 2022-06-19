@@ -8,7 +8,6 @@ class Node(object):
         self.next = None
 
     def __str__(self) -> str:
-
         return str(self.value)
 
     def __eq__(self, other) -> bool:
@@ -50,7 +49,7 @@ class LinkedList(object):
     def __str__(self):
         elements = ''
         current_node = self.head
-        while current_node.next != None:
+        while current_node != None:
             elements += str(current_node) + ' -> '
             current_node = current_node.next
         elements += 'None'
@@ -93,7 +92,6 @@ class LinkedList(object):
             while right:
                 left = left.next
                 right = right.next
-
             # delete
             left.next = left.next.next
             return dummy.next
@@ -103,7 +101,7 @@ class LinkedList(object):
             i = 0
             curr = self.head
             while i < ind:
-                cur = curr.next
+                curr = curr.next
                 i += 1
 
     def intersection(self, list_2):
@@ -118,3 +116,47 @@ class LinkedList(object):
             else:
                 l2 = self.head
         return l1
+
+    def reverse(self):
+        # iterative
+        prev, curr = None, self.head
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        self.head = prev
+
+
+if __name__ == '__main__':
+    print("\nLinked list tests")
+    nodes = []
+    for i in range(6):
+        nodes += [i]
+    linked_list = LinkedList()
+    for node in nodes:
+        linked_list.append(node)
+    print("Linked List:", linked_list)
+    linked_list.reorder_list()
+    print("Reordered linked List:", linked_list)
+    linked_list.reverse()
+    print("The reversed linked list is:", linked_list)
+
+    print("\nLinked list Intersection")
+    nodes = []
+    for i in range(6):
+        nodes += [i]
+    linked_list_1 = LinkedList()
+    for node in nodes:
+        linked_list_1.append(node)
+    print("Linked List 1:", linked_list_1)
+    nodes = []
+    for i in range(3, 6):
+        nodes += [i]
+    linked_list_2 = LinkedList()
+    linked_list_2.append(9)
+    for node in nodes:
+        linked_list_2.append(node)
+    print("Linked List 2:", linked_list_2)
+    inter = linked_list_1.intersection(linked_list_2)
+    print("Intersection Node:", inter)

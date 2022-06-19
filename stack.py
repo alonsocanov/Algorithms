@@ -1,7 +1,5 @@
-from numpy import histogram
 
-
-def valid_parenthesis(string: str):
+def valid_parenthesis(string: str) -> bool:
     close_open = {')': '(', '}': '{', ']': '['}
     stack = []
     for char in string:
@@ -18,7 +16,7 @@ def valid_parenthesis(string: str):
         return False
 
 
-def generate_parenthensis(n: int):
+def generate_parenthensis(n: int) -> list:
     '''
     Given n pairs of parentheses, write a function to generate all combinations of well-formed
     parentheses
@@ -61,7 +59,7 @@ def simplify_path(path: str) -> str:
     return "/" + "/".join(stack)
 
 
-def largest_rectangle_of_histogram(histogram: list):
+def largest_rectangle_of_histogram(histogram: list) -> int:
     '''
     Given n nonnegative integers representing the histogram's bar height
     where the width of each bar is 1. find the area of largest rectangle in the
@@ -86,7 +84,8 @@ if __name__ == '__main__':
     print('\nVerify valid parenthesis')
     string = "()((()))[][[]]"
     print("For the string:", string)
-    print("The string is valid, ", valid_parenthesis(string))
+    is_valid = valid_parenthesis(string)
+    print("The string is valid, ", is_valid)
 
     print('\nGenerate valid parenthesis')
     n = 3

@@ -268,38 +268,6 @@ class TestAlgorithms(unittest.TestCase):
         exists = binary_search_v2(array, value)
         print("The index is:", exists)
 
-    def test_linked_list(self):
-        print("\nLinked list tests")
-        nodes = []
-        for i in range(6):
-            nodes += [i]
-        linked_list = LinkedList()
-        for node in nodes:
-            linked_list.append(node)
-        print("Linked List:", linked_list)
-        linked_list.reorder_list()
-        print("Reordered linked List:", linked_list)
-
-    def test_linked_list_intersection(self):
-        print("\nLinked list Intersection")
-        nodes = []
-        for i in range(6):
-            nodes += [i]
-        linked_list_1 = LinkedList()
-        for node in nodes:
-            linked_list_1.append(node)
-        print("Linked List 1:", linked_list_1)
-        nodes = []
-        for i in range(3, 6):
-            nodes += [i]
-        linked_list_2 = LinkedList()
-        linked_list_2.append(9)
-        for node in nodes:
-            linked_list_2.append(node)
-        print("Linked List 2:", linked_list_2)
-        inter = linked_list_1.intersection(linked_list_2)
-        print("Intersection Node:", inter)
-
     def test_tree(self):
         print("\nTest Tree")
         tree = TreeNode()
@@ -360,9 +328,6 @@ if __name__ == '__main__':
     # Binary search
     algorithms.test_split_array_largest_sum()
     algorithms.test_binary_search_v2()
-    # Linked List
-    algorithms.test_linked_list()
-    algorithms.test_linked_list_intersection()
     # Trees
     algorithms.test_tree()
     # Hash
