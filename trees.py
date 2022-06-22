@@ -67,3 +67,16 @@ class TreeNode(object):
             return (valid(node.left, left, node.val) and valid(node.right, node.val, right))
 
         return valid(root, float("-inf"), float("inf"))
+
+
+if __name__ == '__main__':
+    print("\nTest Tree")
+    tree = TreeNode()
+    tree.insert(10)
+    tree.insert(40)
+    tree.insert(5)
+    tree.insert(20)
+    tree.insert(4)
+    print('The tree is:', tree)
+    inv_tree = tree.invert(tree)
+    print('The tree inverted is:', inv_tree)

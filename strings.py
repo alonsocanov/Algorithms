@@ -1,6 +1,3 @@
-from email import message
-from unittest import result
-
 
 def string_decode_col(strning: str):
     pass
@@ -148,3 +145,36 @@ def run_encoding(string):
     for idx in range(1, len(string) + 1):
         if idx == len(string) or string[idx] != string[idx - 1]:
             result.append(str(count) + string[idx - 1])
+
+
+def reverse_word_order(string: str):
+    '''
+    Reverse the order of words in a given sentence
+    time complexity: O(n)
+    memory complexity: O(1)
+    '''
+    idx_end = 0
+    counter = 0
+    lenght = len(string)
+    while counter < lenght:
+        if string[idx_end] == ' ' or idx_end == lenght - 1:
+            word = string[:idx_end]
+            middle_sentence = string[idx_end + 1: lenght - counter + idx_end]
+            end_sentence = string[lenght - counter + idx_end:]
+            string = middle_sentence + ' ' + word + ' ' + end_sentence
+            idx_end = 0
+            counter += 1
+
+        idx_end += 1
+        counter += 1
+
+    return string
+
+
+if __name__ == '__main__':
+    print(
+        '\nReverse the order of words in a given sentence')
+    string = 'The big brown fox'
+    print('Sentence:', string)
+    rev_string = reverse_word_order(string)
+    print('Reversed string:', rev_string)

@@ -2,8 +2,6 @@
 
 import collections
 
-from numpy import append
-
 
 def can_finish_course(num_courses: int, prerequisites: list) -> bool:
     pre_map = {i: [] for i in range(num_courses + 1)}
@@ -33,6 +31,9 @@ def can_finish_course(num_courses: int, prerequisites: list) -> bool:
 
 
 def number_of_islands(grid: list[list[str]]):
+    '''
+    An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+    '''
     if not grid:
         return 0
     rows, cols = len(grid), len(grid[0])

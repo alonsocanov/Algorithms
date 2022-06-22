@@ -53,24 +53,6 @@ def merge_arrays(array_1: list, array_2: list):
     return res
 
 
-# binary search
-def binary_search(array: list, x):
-    ''''
-    Binary search in a sorted list
-    '''
-    left = 0
-    right = len(array) - 1
-    while (left <= right):
-        mid = int((right + left) / 2)
-        if array[mid] == x:
-            return True
-        elif x > array[mid]:
-            left = mid + 1
-        else:
-            right = mid - 1
-    return False
-
-
 def find_duplicates(array: list):
     duplicates, seen = set(), set()
     for element in array:
@@ -124,38 +106,6 @@ def best_time_to_buy_stock(array):
         right_sell += 1
 
     return max_profit
-
-
-def jump_game(array: list[int]) -> bool:
-    '''
-    Given an array of non-negative integers nums, you are initially positioned at the
-    first index of the array.
-    Each element in the array represents your maximum jump length at that
-    position.
-    Determine if you are able to reach the last index.
-    '''
-    # geady method
-    goal = len(array) - 1
-    for i in range(goal, -1, -1):
-        if i + array[i] >= goal:
-            goal = i
-
-    if goal == 0:
-        return True
-    else:
-        return False
-
-
-def maximum_sum_of_subarray(array: list[int]):
-    # sliding window
-    max_sub = array[0]
-    curr_sum = 0
-    for n in array:
-        if curr_sum < 0:
-            curr_sum = 0
-        curr_sum += n
-        max_sub = max(max_sub, curr_sum)
-    return max_sub
 
 
 def search_sugestion(array: list[str], word: str):
