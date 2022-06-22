@@ -80,6 +80,43 @@ def largest_rectangle_of_histogram(histogram: list) -> int:
     return max_area
 
 
+def daily_temperatures(temperatures: list[int]) -> list[int]:
+    '''
+    Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.
+    '''
+    res = [0] * len(temperatures)
+    stack = []
+    for i, t in enumerate(temperatures):
+        while stack and t > stack[-1][0]:
+            temp, ind = stack.pop()
+            res[ind] = i - ind
+        stack.append([t, i])
+    return res
+
+
+def evalRPN(tokens: list[str]) -> int:
+    '''
+    Polish notation
+    '''
+    my_stack = []
+    for val in tokens:
+        if val == '+':
+            my_stack.append(my_stack.pop() + my_stack.pop())
+        elif val == '-':
+            first = my_stack.pop()
+            second = my_stack.pop()
+            my_stack.append(second - first)
+        elif val == '*':
+            my_stack.append(my_stack.pop() * my_stack.pop())
+        elif val == '/':
+            first = my_stack.pop()
+            second = my_stack.pop()
+            my_stack.append(int(second / first))
+        else:
+            my_stack.append(int(val))
+    return my_stack[0]
+
+
 if __name__ == '__main__':
     print('\nVerify valid parenthesis')
     string = "()((()))[][[]]"
@@ -104,3 +141,16 @@ if __name__ == '__main__':
     print("For the histogram:", array)
     max_area = largest_rectangle_of_histogram(array)
     print("The max area is:", max_area)
+
+    print('\nNumber of days you have to wait after to for the temperature to rise')
+    temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+    print('Daily temeratures:', temperatures)
+    waiting_time = daily_temperatures(temperatures)
+    print("Waiting time:", waiting_time)
+
+    print("\nEvaluate polish notation")
+    notation = ["10", "6", "9", "3", "+", "-11",
+                "*", "/", "*", "17", "+", "5", "+"]
+    print("Notation:", notation)
+    result = evalRPN(notation)
+    print("Result:", result)

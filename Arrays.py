@@ -180,6 +180,26 @@ def search_sugestion(array: list[str], word: str):
     return res
 
 
+def topKFrequent(nums: list[int], k: int) -> list[int]:
+    '''
+    Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+    '''
+    count = {}
+    freq = [[] for i in range(len(nums) + 1)]
+
+    for num in nums:
+        count[num] = 1 + count.get(num, 0)
+    for num, c in count.items():
+        freq[c].append(num)
+    res = []
+    for c in range(len(nums), -1, -1):
+        if freq[c]:
+            res.extend(freq[c])
+
+        if len(res) == k:
+            return res
+
+
 if __name__ == '__main__':
     print("\nSearch sugestions")
     words = ["mobile", "mouse", "moneypot", "monitor", "mousepad"]
@@ -188,3 +208,11 @@ if __name__ == '__main__':
     print("search word:", word)
     sugestions = search_sugestion(words, word)
     print("Sugestions:\n", sugestions)
+
+    print("\nKth repeating")
+    nums = [1, 1, 1, 2, 2, 3]
+    print("My array is:", nums)
+    k = 2
+    print("Return the k:", k)
+    res = topKFrequent(nums, k)
+    print("The K repeating is:", res)

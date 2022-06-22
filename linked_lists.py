@@ -124,6 +124,18 @@ class LinkedList(object):
             curr = nxt
         self.head = prev
 
+    def has_cycle(self) -> bool:
+        # needs to test
+        if not self.head or not self.head.next:
+            return False
+        slow, fast = self.head, self.head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False
+
 
 if __name__ == '__main__':
     print("\nLinked list tests")
@@ -157,3 +169,7 @@ if __name__ == '__main__':
     print("Linked List 2:", linked_list_2)
     inter = linked_list_1.intersection(linked_list_2)
     print("Intersection Node:", inter)
+
+    print("\nHas cycle")
+    print("My list:", linked_list)
+    print("Has cycle:", linked_list.has_cycle())

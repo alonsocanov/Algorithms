@@ -89,7 +89,7 @@ def mayority_element(array):
     that appears more than floor(n/2) times. (The mayority always exists)
     time space: O(n)
     memory complexity: O(1)
-    Moore’s Voting Algorithm
+    Moores Voting Algorithm
     '''
     def find_candidate(array: list):
         maj_index = 0
@@ -189,3 +189,23 @@ def first_non_repeating(string: str):
         else:
             dic[c] += 1
     return unique
+
+
+def longest_sub_string(string: str):
+    char_set = set()
+    l = 0
+    res = 0
+    for r in range(len(string)):
+        while string[r] in char_set:
+            char_set.remove(string[l])
+            l += 1
+            char_set.add(string[r])
+            res = max(res, r - l + 1)
+    return res
+
+
+def single_number(array: list[int]):
+    res = 0
+    for val in array:
+        res ^= val
+    return res
