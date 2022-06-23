@@ -9,6 +9,12 @@ def lengthOfLongestSubstring(s: str) -> int:
     return max_len
 
 
+def max_value_in_window(array: list[int], k: int):
+    queue = []
+    for val in array:
+        while
+
+
 if __name__ == '__main__':
     print("\nLenght of longest substring")
     string = "pwwkew"
