@@ -29,13 +29,6 @@ class TestAlgorithms(unittest.TestCase):
         n = 5
         print(pascal_triangle(n))
 
-    def test_missing_val(self):
-        print('\nFind missing value')
-        array = [2, 3, 1, 6, 5, 4, 8]
-        print(array)
-        x = find_missing_value(array)
-        print('Missing Value:', x)
-
     def test_sum_exist(self):
         print(
             '\nDetermine if the sum of two values in an array is equal to the given value')
@@ -203,7 +196,6 @@ if __name__ == '__main__':
     algorithms.test_find_duplicates()
     algorithms.test_remove_duplicates()
     algorithms.test_list_intersection()
-    algorithms.test_missing_val()
     algorithms.test_best_time_to_buy_stock()
     # Matrix
     algorithms.test_matrix_transpose()

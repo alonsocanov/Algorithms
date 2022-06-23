@@ -166,3 +166,9 @@ if __name__ == '__main__':
     print("Return the k:", k)
     res = topKFrequent(nums, k)
     print("The K repeating is:", res)
+
+    print('\nFind missing value')
+    array = [2, 3, 1, 6, 5, 4, 8]
+    print(array)
+    x = find_missing_value(array)
+    print('Missing Value:', x)

@@ -91,6 +91,26 @@ def kogo_eating_bananas(piles: list[int], h: int):
     return res
 
 
+def search_rotated(nums: list[int], target: int):
+    l, r = 0, len(nums) - 1
+    while l <= r:
+        mid = (l + r) // 2
+        if target == nums[mid]:
+            return mid
+        # left portion
+        if nums[l] <= nums[mid]:
+            if target > nums[mid] or target < nums[l]:
+                l = mid + 1
+            else:
+                r = mid - 1
+        else:
+            if target < nums[mid] or target > nums[r]:
+                r = mid - 1
+            else:
+                l = mid + 1
+    return -1
+
+
 if __name__ == '__main__':
     print("\nKogo eating bananas")
     piles = [30, 11, 23, 4, 20]
@@ -121,4 +141,12 @@ if __name__ == '__main__':
     print("Array:", array)
     print("Search for value:", value)
     exists = binary_search(array, value)
+    print("Value exists:", exists)
+
+    print("\nSearch rotated array")
+    nums = [4, 5, 6, 7, 0, 1, 2]
+    target = 0
+    print("Array:", nums)
+    print("Search for value:", target)
+    exists = search_rotated(nums, target)
     print("Value exists:", exists)

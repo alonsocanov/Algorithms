@@ -61,6 +61,31 @@ def number_of_islands(grid: list[list[str]]):
     return islands
 
 
+def valid_tree(n, edges):
+    if not n:
+        return True
+
+    adj = {i: [] for i in range(n)}
+    for n1, n2 in edges:
+        adj[n1].append(n2)
+        adj[n2].append(n1)
+
+    visit = set()
+
+    def dfs(i, prev):
+        if i in visit:
+            return False
+        visit.add(i)
+        for j in adj[i]:
+            if j == prev:
+                continue
+            if not dfs(j, i):
+                return False
+        return True
+
+    return dfs(0, -1) and n == len(visit)
+
+
 if __name__ == '__main__':
     array = [[0, 1], [0, 2], [1, 3], [0, 3], [1, 2], [2, 3]]
     print('The nodes are:', array)
@@ -78,3 +103,11 @@ if __name__ == '__main__':
     print(grid)
     num_islands = number_of_islands(grid)
     print("the number of islands are:", num_islands)
+
+    print("\nIs valid tree")
+    tree = [[0, 1], [0, 2], [0, 3], [1, 4]]
+    n = 5
+    print("My edges are:", tree)
+    print("Nodes:", n)
+    is_tree = valid_tree(n, tree)
+    print("It's a valid tree:", is_tree)

@@ -63,6 +63,16 @@ def reverse_int(x):
     return res if x > 0 else -res
 
 
+def reverse_bits(n):
+    res = 0
+    i = 0
+    while n:
+        bit = (n >> i) & 1
+        res |= (bit << (31 - 1))
+        i += 1
+    return res
+
+
 if __name__ == '__main__':
     print('\nCheck bit parity')
     val = 11

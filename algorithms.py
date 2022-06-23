@@ -122,3 +122,34 @@ def longest_sub_string(string: str):
             char_set.add(string[r])
             res = max(res, r - l + 1)
     return res
+
+
+def character_replacement(s: str, k: int) -> int:
+    '''
+    You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
+
+    Return the length of the longest substring containing the same letter you can get after performing the above operations.
+    '''
+    res = 0
+    count = dict()
+    l = 0
+    max_f = 0
+    for r in range(len(s)):
+        count[s[r]] = 1 + count.get(s[r], 0)
+        max_f = max(max_f, count[s[r]])
+        while (r - l + 1) - max_f > k:
+            count[s[l]] -= 1
+            l += 1
+
+        res = max(res, r - l + 1)
+    return res
+
+
+if __name__ == '__main__':
+    print("\nCharacter replacement")
+    string = "AAABAABAABABBAA"
+    print("String:", string)
+    k = 2
+    print("Number of replacements:", k)
+    longest = character_replacement(string, k)
+    print("Longest string:", longest)
