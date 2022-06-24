@@ -26,6 +26,20 @@ def max_value_in_window(array: list[int], k: int):
     return output
 
 
+def maxArea(height: list[int]) -> int:
+    l, r = 0, len(height) - 1
+    max_area = 0
+    while l < r:
+        min_h = min(height[l], height[r])
+        area = (r - l) * min_h
+        max_area = max(max_area, area)
+        if min_h == height[l]:
+            l += 1
+        elif min_h == height[r]:
+            r -= 1
+    return max_area
+
+
 if __name__ == '__main__':
     print("\nLenght of longest substring")
     string = "pwwkew"
