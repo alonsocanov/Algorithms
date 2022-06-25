@@ -86,6 +86,50 @@ def valid_tree(n, edges):
     return dfs(0, -1) and n == len(visit)
 
 
+class Node:
+    def __init__(self, val=0, neighbors=None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+
+
+def cloneGraph(node: Node) -> Node:
+    old_to_new = {}
+
+    def dfs(node):
+        if node in old_to_new:
+            return old_to_new[node]
+
+        copy = Node(node.val)
+        old_to_new[node] = copy
+        for n in node.neighbors:
+            copy.neighbors.append(dfs(n))
+
+        return copy
+
+    return dfs(node) if node else None
+
+
+def maxAreaOfIsland(self, grid: list[list[int]]) -> int:
+    max_area = 0
+    visited = set()
+    rows, cols = len(grid), len(grid[0])
+
+    def dfs(r, c):
+        if r not in range(rows) or c not in range(cols) or grid[r][c] == 0 or (r, c) in visited:
+            return 0
+        visited.add((r, c))
+        area = 1
+        directions = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+        for dr, dc in directions:
+            area += dfs(r + dr, c + dc)
+        return area
+
+    for r in range(rows):
+        for c in range(cols):
+            max_area = max(max_area, dfs(r, c))
+    return max_area
+
+
 if __name__ == '__main__':
     array = [[0, 1], [0, 2], [1, 3], [0, 3], [1, 2], [2, 3]]
     print('The nodes are:', array)

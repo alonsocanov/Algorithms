@@ -145,6 +145,36 @@ def character_replacement(s: str, k: int) -> int:
     return res
 
 
+def robot_bounded(directions: str):
+    dir_x, dir_y = 0, 1
+    x, y = 0, 0
+
+    for d in directions:
+        if d == "G":
+            x, y = x + dir_x, y + dir_y
+        elif d == "L":
+            dir_x, dir_y = -1 * dir_y, dir_x
+        else:
+            dir_x, dir_y = dir_y, -1 * dir_x
+
+    if (x, y) == (0, 0) or (dir_x, dir_y) != (0, 1):
+        return True
+    return False
+
+
+def maximumUnits(boxTypes: list[list[int]], truckSize: int) -> int:
+    boxTypes.sort(key=lambda x: -x[1])
+    result = 0
+    for box, unit in boxTypes:
+        if truckSize >= box:
+            result += box * unit
+            truckSize -= box
+        else:
+            result += truckSize * unit
+            break
+    return result
+
+
 if __name__ == '__main__':
     print("\nCharacter replacement")
     string = "AAABAABAABABBAA"

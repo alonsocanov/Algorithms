@@ -150,6 +150,35 @@ def topKFrequent(nums: list[int], k: int) -> list[int]:
             return res
 
 
+def slowestKey(releaseTimes: list[int], keysPressed: str) -> str:
+    result = keysPressed[0]
+    prev_time = 0
+    max_time = 0
+    for t in range(len(releaseTimes)):
+        time = releaseTimes[t] - prev_time
+        if max_time < time:
+            result = keysPressed[t]
+            max_time = time
+        if time == max_time:
+            result = max(result, keysPressed[t])
+        prev_time = releaseTimes[t]
+    return result
+
+
+def auto_scale(array: list[int], instances: int):
+    i = 0
+    max_val = 2 * 108
+    while i < len(array):
+        if array[i] < 25 and instances > 1:
+            instances = (instances / 2) + (instances % 2)
+            i += 9
+        elif array[i] > 60 and max_val > instances * 2:
+            instances *= 2
+            i += 9
+        i += 1
+    return instances
+
+
 if __name__ == '__main__':
     print("\nSearch sugestions")
     words = ["mobile", "mouse", "moneypot", "monitor", "mousepad"]
@@ -172,3 +201,8 @@ if __name__ == '__main__':
     print(array)
     x = find_missing_value(array)
     print('Missing Value:', x)
+
+    average_util = [25, 23, 1, 2, 3, 4, 5, 6, 7, 7, 9, 7, 6, 76, 80]
+    instances = 2
+    res = auto_scale(average_util, instances)
+    print(res)
