@@ -4,7 +4,7 @@ import collections
 
 
 def can_finish_course(num_courses: int, prerequisites: list) -> bool:
-    pre_map = {i: [] for i in range(num_courses + 1)}
+    pre_map = {i: [] for i in range(num_courses)}
     for crs, pre in prerequisites:
         pre_map[crs].append(pre)
 
@@ -130,10 +130,89 @@ def maxAreaOfIsland(self, grid: list[list[int]]) -> int:
     return max_area
 
 
+def pacificAtlantic(heights: list[list[int]]) -> list[list[int]]:
+    rows, cols = len(heights), len(heights[0])
+    visit_pac, visit_atl = set(), set()
+
+    def dfs(r, c, visit, prev_height):
+        if ((r, c) in visit or r not in range(rows) or c not in range(cols) or heights[r][c] < prev_height):
+            return
+        visit.add((r, c))
+        neigh = [[r + 1, c], [r - 1, c], [r, c + 1], [r, c - 1]]
+        for dr, dc in neigh:
+            dfs(dr, dc, visit, heights[r][c])
+
+    for c in range(cols):
+        dfs(0, c, visit_pac, heights[0][c])
+        dfs(rows - 1, c, visit_atl, heights[rows-1][c])
+
+    for r in range(rows):
+        dfs(r, 0, visit_pac, heights[r][0])
+        dfs(r, cols - 1, visit_atl, heights[r][cols - 1])
+
+    res = []
+    for r in range(rows):
+        for c in range(cols):
+            if (r, c) in visit_pac and (r, c) in visit_atl:
+                res.append([r, c])
+
+    return res
+
+
+def orangesRotting(self, grid: list[list[int]]) -> int:
+    rows, cols = len(grid), len(grid[0])
+    q = []
+    time, fresh = 0, 0
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == 1:
+                fresh += 1
+            if grid[r][c] == 2:
+                q.append((r, c))
+
+    directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
+    while q and fresh:
+        for i in range(len(q)):
+            r, c = q.pop(0)
+            for dr, dc in directions:
+                row, col = r + dr, c + dc
+                if row in range(rows) and col in range(cols) and grid[row][col] == 1:
+                    q.append((row, col))
+                    grid[row][col] = 2
+                    fresh -= 1
+
+        time += 1
+
+    return time if not fresh else -1
+
+
+def walls_and_gates(rooms: list[list[int]]):
+    # write your code here
+
+    q = []
+    rows, cols = len(rooms), len(rooms[0])
+    for r in range(rows):
+        for c in range(cols):
+            if rooms[r][c] == 0:
+                q.append((r, c))
+
+    directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
+    distance = 1
+    while q:
+        for _ in range(len(q)):
+            r, c = q.pop(0)
+            for dr, dc in directions:
+                row, col = r + dr, c + dc
+                if row in range(rows) and col in range(cols) and rooms[row][col] == 2147483647:
+                    rooms[row][col] = distance
+                    q.append((row, col))
+        distance += 1
+
+
 if __name__ == '__main__':
     array = [[0, 1], [0, 2], [1, 3], [0, 3], [1, 2], [2, 3]]
     print('The nodes are:', array)
-    num_courses = 3
+    num_courses = 4
     print('Number of courses:', num_courses)
     can = can_finish_course(num_courses, array)
     print('Can finish all courses:', can)
@@ -155,3 +234,9 @@ if __name__ == '__main__':
     print("Nodes:", n)
     is_tree = valid_tree(n, tree)
     print("It's a valid tree:", is_tree)
+
+    rooms = [[2147483647, -1, 0, 2147483647], [2147483647, 2147483647, 2147483647, -1],
+             [2147483647, -1, 2147483647, -1], [0, -1, 2147483647, 2147483647]]
+    print(rooms)
+    walls_and_gates(rooms)
+    print(rooms)
