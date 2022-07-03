@@ -177,6 +177,9 @@ def reverse_word_order(string: str):
 
 
 def reorganize_string(s):
+    '''
+    No adjecent characters repeating
+    '''
     char_frequency = dict()
     # O(n)
     for c in s:

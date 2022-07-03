@@ -1,6 +1,7 @@
 
 
 import collections
+import heapq
 
 
 def can_finish_course(num_courses: int, prerequisites: list) -> bool:
@@ -209,6 +210,33 @@ def walls_and_gates(rooms: list[list[int]]):
         distance += 1
 
 
+def min_spanning_tree(points: list[list[int]]):
+    N = len(points)
+    adj = {i: [] for i in range(N)}
+    for i in range(N):
+        x, y = points[i]
+        for j in range(i + 1, N):
+            x2, y2 = points[j]
+            dist = abs(x - x2) + abs(y - y2)
+            adj[i].append([dist, j])
+            adj[j].append([dist, i])
+
+    # Pim's algo
+    visit = set()
+    res = 0
+    min_heap = [[0, 0]]
+    while len(visit) < N:
+        cost, i = heapq.heappop(min_heap)
+        if i in visit:
+            continue
+        res += cost
+        visit.add(i)
+        for neig_cost, nei in adj[i]:
+            if nei not in visit:
+                heapq.heappush(min_heap, [neig_cost, nei])
+    return res
+
+
 if __name__ == '__main__':
     array = [[0, 1], [0, 2], [1, 3], [0, 3], [1, 2], [2, 3]]
     print('The nodes are:', array)
@@ -235,8 +263,17 @@ if __name__ == '__main__':
     is_tree = valid_tree(n, tree)
     print("It's a valid tree:", is_tree)
 
+    print("\nWall and Gates")
     rooms = [[2147483647, -1, 0, 2147483647], [2147483647, 2147483647, 2147483647, -1],
              [2147483647, -1, 2147483647, -1], [0, -1, 2147483647, 2147483647]]
+    print("The rooms are:")
     print(rooms)
     walls_and_gates(rooms)
+    print("The distance is:")
     print(rooms)
+
+    print("\nPrims Algorithm")
+    points = [[1, 0], [3, 4], [2, 6], [1, 2]]
+    print("The point are:", points)
+    distance = min_spanning_tree(points)
+    print("the min distance connecting all point is:", distance)

@@ -1,4 +1,7 @@
 
+from unittest import result
+
+
 def array_value_swap(array: list, left: int, right: int):
     '''
     Arrat value swap
@@ -179,6 +182,22 @@ def auto_scale(array: list[int], instances: int):
     return instances
 
 
+def permutations(array: list[int]):
+    result = []
+    if len(array) == 1:
+        return [array[:]]
+
+    for _ in range(len(array)):
+        n = array.pop(0)
+        perms = permutations(array)
+
+        for perm in perms:
+            perm.append(n)
+        result.extend(perms)
+        array.append(n)
+    return result
+
+
 if __name__ == '__main__':
     print("\nSearch sugestions")
     words = ["mobile", "mouse", "moneypot", "monitor", "mousepad"]
@@ -206,3 +225,9 @@ if __name__ == '__main__':
     instances = 2
     res = auto_scale(average_util, instances)
     print(res)
+
+    print("\nGive all permutations")
+    array = [1, 2, 3]
+    print("The array is:", array)
+    perm = permutations(array)
+    print("All permutations are:", perm)
