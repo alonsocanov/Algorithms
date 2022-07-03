@@ -1,4 +1,9 @@
 
+import heapq
+
+from numpy import char
+
+
 def string_decode_col(strning: str):
     pass
 
@@ -171,6 +176,33 @@ def reverse_word_order(string: str):
     return string
 
 
+def reorganize_string(s):
+    char_frequency = dict()
+    # O(n)
+    for c in s:
+        char_frequency[c] = 1 + char_frequency.get(c, 0)
+
+    max_heap = [[-cnt, char] for char, cnt in char_frequency.items()]
+    heapq.heapify(max_heap)  # O(n)
+
+    prev = ""
+    res = ""
+    while max_heap or prev:
+        if prev and not max_heap:
+            return ""
+        cnt, char = heapq.heappop(max_heap)
+        res += char
+        cnt += 1
+
+        if prev:
+            heapq.heappush(max_heap, prev)
+            prev = ""
+
+        if cnt != 0:
+            prev = [cnt, char]
+    return res
+
+
 if __name__ == '__main__':
     print(
         '\nReverse the order of words in a given sentence')
@@ -178,3 +210,8 @@ if __name__ == '__main__':
     print('Sentence:', string)
     rev_string = reverse_word_order(string)
     print('Reversed string:', rev_string)
+
+    print("\nReorganize string")
+    string = "aabbcgdvvbb"
+    string = reorganize_string(string)
+    print("Reorganized string:", string)
