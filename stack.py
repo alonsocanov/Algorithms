@@ -140,6 +140,45 @@ def car_fleet(target: int, position: list[int], speed: list[int]) -> int:
     return len(stack)
 
 
+def asteroidCollision(asteroids: list[int]) -> list[int]:
+
+    stack = []
+    for asteroid in asteroids:
+
+        while stack and asteroid < 0 < stack[-1]:
+
+            if stack[-1] < -asteroid:
+                stack.pop()
+                continue
+            elif stack[-1] == -asteroid:
+                stack.pop()
+            break
+        else:
+            stack.append(asteroid)
+    return stack
+
+
+def maxSumMinProduct(nums: list[int]) -> int:
+    sum_array = [0]
+    for n in nums:
+        sum_array.append(sum_array[-1] + n)
+    res = 0
+    stack = []  # [idx, val]
+    for i, n in enumerate(nums):
+        new_start = i
+        while stack and stack[-1][1] > n:
+            start, val = stack.pop()
+            total = sum_array[i] - sum_array[start]
+            res = max(res, val*total)
+            new_start = start
+        stack.append((new_start, n))
+
+    for start, val in stack:
+        total = sum_array[len(nums)] - sum_array[start]
+        res = max(res, val * total)
+    return res % (10**9 + 7)
+
+
 if __name__ == '__main__':
     print('\nVerify valid parenthesis')
     string = "()((()))[][[]]"
@@ -187,3 +226,15 @@ if __name__ == '__main__':
     print("Velocity of each fleet:", speed)
     num_fleets = car_fleet(target, position, speed)
     print("Number of fleets:", num_fleets)
+
+    print("\n Asteroid collision")
+    asteroids = [10, -5, 2]
+    print("Initial Asteroids:", asteroids)
+    asteroids = asteroidCollision(asteroids)
+    print("Resulting asteroids:", asteroids)
+
+    print("\nMaximum minimum priduct")
+    array = [1, 2, 3, 2]
+    print("The array is:", array)
+    max_product = maxSumMinProduct(array)
+    print("The maximum min product is:", max_product)
