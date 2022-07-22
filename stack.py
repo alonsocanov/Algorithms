@@ -179,6 +179,22 @@ def maxSumMinProduct(nums: list[int]) -> int:
     return res % (10**9 + 7)
 
 
+def removeKAdjecent(string: str, k: int):
+    stack = []
+    for c in string:
+        if stack and stack[-1][0] == c:
+            stack[-1][1] += 1
+            if stack[-1][1] == k:
+                stack.pop()
+        else:
+            stack.append([c, 1])
+
+    res = ""
+    for c, i in stack:
+        res += (c * i)
+    return res
+
+
 if __name__ == '__main__':
     print('\nVerify valid parenthesis')
     string = "()((()))[][[]]"
@@ -238,3 +254,8 @@ if __name__ == '__main__':
     print("The array is:", array)
     max_product = maxSumMinProduct(array)
     print("The maximum min product is:", max_product)
+
+    print("Remove K adjecent")
+    s = "aaabbcccccbdgghhhg"
+    res = removeKAdjecent(s, 3)
+    print(res)
