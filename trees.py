@@ -1,4 +1,7 @@
 
+from matplotlib import collections
+
+
 class TreeNode(object):
     def __init__(self, data=None) -> None:
         self.value = data
@@ -131,7 +134,7 @@ class TreeNode(object):
 
             return 1 + max(left, right)
 
-        dfs(node)
+        dfs(self.root)
         return res[0]
 
     def max_path_sum(self):
@@ -151,8 +154,52 @@ class TreeNode(object):
                 r_max = 0
                 if node.right:
                     r_max = max(node.right, 0)
-                res = max(res, node + l_max + r_max)
+                res = max(res, node.val + l_max + r_max)
         return res
+
+
+def find_sibings_cousins(tree, q):
+
+    if not tree:
+        print('Siblings', [], 'Cousins', [])
+        return 
+
+    queue = collections.queue([tree])
+    depth = []
+    depth_flag = False
+    while not depth_flag and not queue:
+        length = len(queue)
+        depth = []
+        for _ in range(length):
+            node = queue.popleft()
+            if node:
+                if node == q:
+                    depth_flag = True
+                else:
+                    depth.append(node.val)
+                queue.append(node.left)
+                queue.append(node.right)
+
+    # definetly wrong maybe there isnt a cousin or a sibling
+    if depth_flag and len(depth) > 1:
+        siblings = depth[0]
+        cousins = depth[1:]
+
+    print(siblings, cousins)
+    return
+    
+
+
+
+
+
+
+
+        
+
+
+
+
 
 
 if __name__ == '__main__':

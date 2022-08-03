@@ -26,6 +26,21 @@ def num_decodings(s: str) -> int:
     return dfs(0)
 
 
+def minStepsToMinimize(n: int) -> int:
+    if not n:
+        return 0
+
+    dp = [n+1] * (n + 1)
+    dp[1] = 0
+    for i in range(1, n):
+        dp[i + 1] = min(dp[i + 1], dp[i] + 1)
+        if i * 2 <= n:
+            dp[i * 2] = min(dp[i] + 1, dp[i * 2])
+        if i * 3 <= n:
+            dp[i * 3] = min(dp[i] + 1, dp[i * 3])
+    return dp[n]
+
+
 if __name__ == '__main__':
     print("\nCoin change")
     coins = [1, 2, 3]
@@ -39,3 +54,9 @@ if __name__ == '__main__':
     print("The string is:", string)
     num_dec = num_decodings(string)
     print("The number of decodings is:", num_dec)
+
+    print("\nMinimum steps to minimize n")
+    val = 10
+    print("The value is:", val)
+    min_steps = minStepsToMinimize(val)
+    print("The minimun number of steps are:", min_steps)
